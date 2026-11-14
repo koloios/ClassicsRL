@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f8">
+  <meta name="description" content="Inspect ClassicsRL experiments, learning curves, and recorded agent decisions locally.">
+  <title>ClassicsRL · Experiment workspace</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="module" src="/assets/app.js"></script>
+</head>
+<body data-view="overview">
+  <a class="skip-link" href="#main">Skip to experiment</a>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="ClassicsRL home">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 4h8v8H3zM15 4h10v4H15zM15 12h10v4H15zM3 16h8v8H3zM15 20h10v4H15z"/></svg>
+      <span>Classics<span class="brand-rl">RL</span></span>
+    </a>
+    <div class="workspace-label"><span>EXPERIMENTS</span><span id="run-count" class="count">0</span></div>
+    <label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="run-search" type="search" placeholder="Find an experiment" aria-label="Find an experiment"></label>
+    <nav id="run-list" aria-label="Experiments"><p class="sidebar-empty">Loading experiments…</p></nav>
+    <div class="sidebar-footer"><span class="local-dot"></span><div><strong>Local workspace</strong><span>Your experiments stay here.</span></div></div>
+  </aside>
+
+  <main id="main">
+    <header class="masthead">
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Experiments</strong></div>
+      <div class="header-actions"><label class="live-control"><input type="checkbox" id="auto-refresh" checked><span class="switch"></span>Live refresh</label><button class="icon-button" id="refresh" aria-label="Refresh experiments" title="Refresh experiments"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 7a6.5 6.5 0 1 0 .2 5M16 3v4h-4"/></svg></button></div>
+    </header>
+    <p id="connection-error" class="notice error" role="alert" hidden></p>
+    <section id="welcome" class="welcome" hidden>
+      <div class="eyebrow">A WORKSPACE FOR LEARNING</div><h1>Make the next move.</h1><p>Train an agent, then explore how its decisions change.</p>
+      <div class="empty-command"><span>Start your first experiment</span><code>uv run --extra atari classicsrl train --config configs/pong.toml --run runs/pong</code></div>
+      <p class="muted">Point the dashboard at an existing collection with <code>classicsrl dashboard --runs /path/to/runs</code>.</p>
+    </section>
+    <div id="experiment" hidden>
+      <section class="experiment-heading">
+        <div><div class="eyebrow"><span class="eyebrow-dot"></span> DEEP Q-LEARNING</div><h1><span id="game-title">Pong</span><span class="title-separator">/</span><span class="title-subtitle">Experiment</span></h1><p id="run-subtitle" class="run-subtitle"></p></div>
+        <div class="experiment-badges"><span id="run-status" class="badge"></span><span id="device-badge" class="badge neutral"></span><span id="seed-badge" class="badge neutral"></span></div>
+      </section>
+      <section class="stats" aria-label="Experiment summary">
+        <article class="stat"><span class="stat-label">Agent steps</span><strong id="stat-steps">—</strong><div class="step-progress"><span id="step-progress"></span></div><small id="stat-budget">No budget recorded</small></article>
+        <article class="stat"><span class="stat-label">Best validation return <span class="info-mark" title="Best greedy validation mean using the training protocol. Final tests and recordings are shown separately below.">i</span></span><strong id="stat-return">—</strong><small id="stat-return-note">Separate validation episodes</small></article>
+        <article class="stat"><span class="stat-label">Gradient updates</span><strong id="stat-updates">—</strong><small id="stat-training-time">Training time unavailable</small></article>
+        <article class="stat"><span class="stat-label">Training throughput</span><strong id="stat-speed">—</strong><small>Agent steps / second · latest window</small></article>
+      </section>
+      <nav class="view-tabs" aria-label="Experiment views"><button data-view="overview" aria-selected="true">Overview</button><button data-view="inspector" aria-selected="false">Policy inspector</button><button data-view="configuration" aria-selected="false">Configuration</button><span id="last-updated" class="last-updated"></span></nav>
+      <p id="data-warning" class="notice" hidden></p>
+      <div class="analysis-layout">
+        <div class="learning-column">
+          <section class="panel curve-panel">
+            <div class="panel-heading"><div><h2>Learning, over time</h2><p id="chart-description">Raw observations from this experiment</p></div><label class="metric-select"><span class="sr-only">Learning curve metric</span><select id="metric-select"></select></label></div>
+            <div id="chart" class="chart" aria-live="polite"></div>
+            <div class="chart-footer"><span><i class="legend-dot"></i><span id="chart-legend">Training observations</span></span><span>Agent steps →</span></div>
+          </section>
+          <section class="panel evaluations-panel">
+            <div class="panel-heading"><div><h2>Policy evaluations</h2><p>Validation, final tests, and recordings</p></div><span id="evaluation-count" class="count">0</span></div>
+            <div class="table-scroll"><table class="evaluation-table"><thead><tr><th>Step</th><th>Policy</th><th>Mean return</th><th>Episodes</th><th>Win rate</th><th><span class="sr-only">Inspect</span></th></tr></thead><tbody id="evaluation-rows"></tbody></table></div>
+            <p id="evaluation-note" class="panel-footnote">The curve and best return use validation only. Pong wins require a positive return at game termination; a time-limited lead is not a win.</p>
+          </section>
+        </div>
+        <section class="panel policy-panel">
+          <div class="panel-heading"><div><h2>Inside the policy</h2><p id="playback-description">Recorded play. Frame-aligned decisions.</p></div><span class="small-label">REPLAY</span></div>
+          <div class="inspector-selectors"><label>Checkpoint<select id="checkpoint-select"></select></label><label id="evaluation-control">Evaluation<select id="evaluation-select"></select></label><label id="episode-control">Episode<select id="episode-select"></select></label></div>
+          <div class="policy-layout">
+            <div class="video-column">
+              <div id="appearance-control" class="appearance-control" hidden><span>Appearance</span><div class="appearance-switch" role="group" aria-label="Replay appearance" title="Display styling only; recorded training images are unchanged"><button data-appearance="minimal" aria-pressed="true">Minimal</button><button data-appearance="original" aria-pressed="false">Original</button></div></div>
+              <div class="game-screen" id="game-screen"><video id="replay" playsinline muted preload="auto" aria-label="Recorded agent gameplay" hidden></video><div id="pong-view" class="pong-view" hidden><div class="pong-scoreboard" aria-label="Pong score"><div class="pong-player opponent"><span>Opponent</span><strong id="opponent-score">0</strong></div><span class="pong-score-divider" aria-hidden="true">/</span><div class="pong-player agent"><span>Agent</span><strong id="agent-score">0</strong></div></div><canvas id="pong-court" width="160" height="160" role="img" aria-label="Pong court with a minimal playback palette"></canvas></div><div id="no-recording" class="no-recording"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="11" width="34" height="26" rx="3"/><path d="M17 19v10M12 24h10M31 21h1M35 27h1"/></svg><strong>No recorded episode yet</strong><p>Capture a preview to connect this policy’s values with its behavior.</p><button class="button primary" id="record-preview">Record a preview</button></div></div>
+              <div id="playback-controls" class="playback-controls" hidden>
+                <div class="transport"><button class="icon-button" id="previous-frame" aria-label="Previous decision" title="Previous decision (←)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 4v12M15 4l-8 6 8 6Z"/></svg></button><button class="play-button" id="play-pause" aria-label="Play recording">▶</button><button class="icon-button" id="next-frame" aria-label="Next decision" title="Next decision (→)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15 4v12M5 4l8 6-8 6Z"/></svg></button><span id="playback-time" class="playback-time">0:00 / 0:00</span><label class="playback-speed"><span class="sr-only">Playback speed</span><select id="playback-speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div>
+                <input id="decision-slider" class="decision-slider" type="range" min="0" max="0" value="0" aria-label="Recorded decision">
+                <div class="decision-meta"><span id="decision-index">Decision —</span><span id="recording-return">Return —</span></div>
+              </div>
+              <p id="preview-note" class="preview-note" hidden></p>
+            </div>
+            <div class="values-column"><div class="values-heading"><h3>Action values</h3><span id="chosen-action" class="action-badge">Awaiting a recording</span></div><div id="q-values" class="q-values"><p class="muted">Select an episode to inspect the Q-values at each decision.</p></div><div id="decision-detail" class="decision-detail" hidden><span>Immediate reward<strong id="decision-reward">—</strong></span><span>Episode state<strong id="decision-state">—</strong></span></div><p class="values-note">Q-values estimate future discounted return. They are not action probabilities.</p></div>
+          </div>
+          <div class="policy-footer"><span id="policy-caption">Select a saved checkpoint</span><button id="record-another" class="text-button">Record preview ↗</button></div>
+        </section>
+      </div>
+      <section id="configuration" class="configuration" hidden><div class="panel"><div class="panel-heading"><div><h2>Experiment configuration</h2><p>Resolved settings for the latest training segment</p></div></div><div id="config-table" class="config-grid"></div></div><div class="panel provenance-panel"><div class="panel-heading"><div><h2>Reproducibility</h2><p>Source and runtime recorded by the experiment</p></div></div><dl id="provenance" class="provenance"></dl></div></section>
+    </div>
+    <footer class="page-footer"><span>ClassicsRL <span class="footer-slash">/</span> Understand the learning.</span><span>Experiment workspace · v0.1</span></footer>
+  </main>
+  <dialog id="record-dialog"><div class="dialog-heading"><h2>Record a policy preview</h2><button id="close-dialog" class="icon-button" aria-label="Close recording instructions">×</button></div><p>Run this command from your project environment. It records one episode, capped at 1,000 agent steps. Preview scores stay separate from full evaluations.</p><pre><code id="record-command"></code></pre><div class="dialog-footer"><span id="copy-status" aria-live="polite"></span><button class="button primary" id="copy-command">Copy command</button></div></dialog>
+</body>
+</html>

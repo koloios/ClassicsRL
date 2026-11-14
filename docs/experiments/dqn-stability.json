@@ -1,0 +1,3302 @@
+{
+  "schema_version": 1,
+  "probe": {
+    "samples": 128,
+    "seed": 20261107,
+    "replay_sha256": "80eb2fe61064dbee38314ee4afbad624f5bdbc9f90c3e85857b38bde68fe272e",
+    "replay_source": "original seed-0 100k snapshot",
+    "pixel_min": 52,
+    "pixel_max": 236,
+    "distinct_observations": 128
+  },
+  "runs": [
+    {
+      "name": "pong-seed-0-100k",
+      "run_id": "2502b782a71c4d7e9c37762f38f5d464",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "85bc14c17efc451582e3a4914ea3c41d",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": true,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "replay.py": "aedac7594b4db8f953b50feebed1a735f6d8b0ee9b00e87fb42742838784028a",
+              "cli.py": "49945b2b1d0fa02e57bd7efab71bed6896a559539e0f2d2e25d759fa25636c86",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "a9ea263a3212da5522ecd64db4ee28938aa3a20499a5ddb5b5c1f85d816d3cf1"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 0
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "b006173879ec13a72cf2defcb815c6a5db96cc52d119ab8fec5db7e358d2cd29",
+          "probe": {
+            "features/conv1_active_fraction": 0.07590880990028381,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.40484243631362915,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.11672911047935486,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.236328125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 2.5808747523115017e-05,
+            "q/max_observation_range": 0.00019505620002746582,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "9875c3d78590bc2fb3810be4fbfb33965afad5e862738172588d95e1b15b37af",
+          "probe": {
+            "features/conv1_active_fraction": 0.044978637248277664,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.43026167154312134,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.306640625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "59365cdd518de19bd223089dba7825015e34f973d91c970774f384f1bc335fda",
+          "probe": {
+            "features/conv1_active_fraction": 0.06625793129205704,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.4391486942768097,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.2421875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "e8f7885590ee8636f01dbb7a39765d01ff30ee6b4f73d62c7d0cec8f5452ff04",
+          "probe": {
+            "features/conv1_active_fraction": 0.06625793129205704,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.4391486942768097,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.234375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": []
+    },
+    {
+      "name": "pong-lr3e-5-seed-0-100k",
+      "run_id": "d8f720ebafc44fc19abb94aaa425a759",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 3e-05,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "a0e859c36207499a9d23c6fdf16ea0e9",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 3e-05,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": true,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "aedac7594b4db8f953b50feebed1a735f6d8b0ee9b00e87fb42742838784028a",
+              "cli.py": "ca571eb8b927d479b992d6af399b846637da957e38222be4d819a30f3cf1161e",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "a9ea263a3212da5522ecd64db4ee28938aa3a20499a5ddb5b5c1f85d816d3cf1"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 0
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "e1ecccacd4d93bef51c8544a9b9423a1dc8071dbe511976d1c8c9d51ad6177fa",
+          "probe": {
+            "features/conv1_active_fraction": 0.4097393751144409,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.4181164503097534,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.4476393163204193,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2733917236328125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.000145100086228922,
+            "q/max_observation_range": 0.0009336154907941818,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "06d85b1e122b0ed7f2662afecf614c1d5a18abfe75550f73a7eab1af9ad44f67",
+          "probe": {
+            "features/conv1_active_fraction": 0.6700512766838074,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.7117769122123718,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.7128956317901611,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.264678955078125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.09565669298171997,
+            "q/max_observation_range": 0.5743327736854553,
+            "q/greedy_action_count": 2.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "72f80b132011f4458ba8474228937e42da18225cb6da66b4355f52ca5101b309",
+          "probe": {
+            "features/conv1_active_fraction": 0.6987103223800659,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6999421119689941,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.6774478554725647,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2652130126953125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.28564202785491943,
+            "q/max_observation_range": 1.4441678524017334,
+            "q/greedy_action_count": 2.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "4cceef3fd47b01564630a7130e30d8c380694c566c4c915507653de9c76c6434",
+          "probe": {
+            "features/conv1_active_fraction": 0.673919677734375,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6534936428070068,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.6042056679725647,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.27117919921875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.31481197476387024,
+            "q/max_observation_range": 1.327386736869812,
+            "q/greedy_action_count": 3.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": []
+    },
+    {
+      "name": "pong-lr1e-4-seed-1-100k",
+      "run_id": "59fcc35513ab47488a0cf878540379ba",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 1,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "6cc6d86b3c0c4576a4b541c47ab1cf15",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 1,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": false,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "9055968184af4e1ffadd7d0551bf8ef95a40c23fb3ce30048adf414b1c0a70ce"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 1
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "30adf7af83966aecac1b66bcb39bc288a85381e0adc9ba04620a659a865a585c",
+          "probe": {
+            "features/conv1_active_fraction": 0.27304747700691223,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.3840618431568146,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.02401546575129032,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.46923828125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 2.4948383725131862e-05,
+            "q/max_observation_range": 0.0002048686146736145,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "57aa8ff96aca24e4a5d6313c662766f9bc3f80eb2134289b43c37e1c60c489f3",
+          "probe": {
+            "features/conv1_active_fraction": 0.21411071717739105,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.36649274826049805,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.30859375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "2075b3485c6188479d8b0344712ba9a32423e3164382b35d2caeac21f61821c3",
+          "probe": {
+            "features/conv1_active_fraction": 0.23551879823207855,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.35927101969718933,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.26953125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "e3d432854bcd0b1d0ce5d0017455158617d4d29553b5790aa2f0a7395e6d0940",
+          "probe": {
+            "features/conv1_active_fraction": 0.23551879823207855,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.35927101969718933,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.267578125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": []
+    },
+    {
+      "name": "pong-lr3e-5-seed-1-100k",
+      "run_id": "ed71740b42cf419db889b3dc03aa86fc",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 1,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 3e-05,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "ead518d3af744b52b4f5f2f842f3341d",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 1,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 3e-05,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": false,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "9055968184af4e1ffadd7d0551bf8ef95a40c23fb3ce30048adf414b1c0a70ce"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 1
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "4c97dc3fa52b0e176abbc11b31c957f867e886aa282ee7462532d25877564c96",
+          "probe": {
+            "features/conv1_active_fraction": 0.3836340308189392,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.5316463708877563,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.3330850303173065,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.344207763671875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.00012144663924118504,
+            "q/max_observation_range": 0.0009378287941217422,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "98b97ebee9ea95b582da653fa33e7463e565a07a91e6455f4e592e45955fbbd6",
+          "probe": {
+            "features/conv1_active_fraction": 0.6141772270202637,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.7436854839324951,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.641093373298645,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2325592041015625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.08874201029539108,
+            "q/max_observation_range": 0.6439565420150757,
+            "q/greedy_action_count": 3.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "aa849a67e16692966f77de2c3e81853170efdf02053e58b442dcfc6a54225db7",
+          "probe": {
+            "features/conv1_active_fraction": 0.5595514178276062,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6975157856941223,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.576994001865387,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2443695068359375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.26848751306533813,
+            "q/max_observation_range": 1.2448545694351196,
+            "q/greedy_action_count": 6.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "a30b6565afa3d75e93d0274b70b78ab52e95bf96312ac0b1588e1e7a115d4e08",
+          "probe": {
+            "features/conv1_active_fraction": 0.540679931640625,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.7011417150497437,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.5740418434143066,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2406158447265625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.29263970255851746,
+            "q/max_observation_range": 1.2129333019256592,
+            "q/greedy_action_count": 3.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -20.8,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 1001,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 878,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 824,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 884,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 857,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": []
+    },
+    {
+      "name": "pong-lr1e-4-seed-2-100k",
+      "run_id": "d5b53d0250de4467a6929ccd4940f257",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 2,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "91d31bf85ffd4d6a915e76d02569ab9b",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 2,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": false,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "9055968184af4e1ffadd7d0551bf8ef95a40c23fb3ce30048adf414b1c0a70ce"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 2
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "078411adeebc298deeb23195a55a78de11403b1568fddcd53ff0715237544740",
+          "probe": {
+            "features/conv1_active_fraction": 0.1301586925983429,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.3436625897884369,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.13504713773727417,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.3356781005859375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 4.262468792148866e-05,
+            "q/max_observation_range": 0.00025730207562446594,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "d51455c91089715075523047a7dc383e9ac051f38925ee514c5792d5df0ff3f0",
+          "probe": {
+            "features/conv1_active_fraction": 0.06450317054986954,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.28627899289131165,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.326171875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "06d625fd6e864e1b60bf156cc1679b1d332af7b9a3d9a838eb833558fc515d4b",
+          "probe": {
+            "features/conv1_active_fraction": 0.06450317054986954,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.2863016128540039,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.287109375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "a5145d7b2882203fa3df7c5c92783a566898781d99bc3ec7d9e5250017d95292",
+          "probe": {
+            "features/conv1_active_fraction": 0.06450317054986954,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.2863016128540039,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.275390625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": []
+    },
+    {
+      "name": "pong-lr3e-5-seed-2-100k",
+      "run_id": "680a46e668e540f0beb098c948315670",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 2,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 3e-05,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "c9d707177985493fb9a65de44af0b3a8",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 2,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 3e-05,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": false,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "9055968184af4e1ffadd7d0551bf8ef95a40c23fb3ce30048adf414b1c0a70ce"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 2
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "715eb366221345e327fadaa34661e0af3e2be1c01eb577e8f8553e06d326d6ce",
+          "probe": {
+            "features/conv1_active_fraction": 0.33072754740715027,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.38204240798950195,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.3581642508506775,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.3280487060546875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0001154421697719954,
+            "q/max_observation_range": 0.000752326101064682,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "1d6fbeeed8b3d2b584bec567ded0b1315ea1a387b7048b52cdd0f8412beced64",
+          "probe": {
+            "features/conv1_active_fraction": 0.5450384616851807,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6716414093971252,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.685457170009613,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.3013916015625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0882810652256012,
+            "q/max_observation_range": 0.3892298936843872,
+            "q/greedy_action_count": 2.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "a79c9cf14139ff5fe0028792d960ef147695ad40378ecddbcbf251407e3ca899",
+          "probe": {
+            "features/conv1_active_fraction": 0.572070300579071,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6921989321708679,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.6941714882850647,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.3031768798828125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.28972673416137695,
+            "q/max_observation_range": 1.5014772415161133,
+            "q/greedy_action_count": 2.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "5bfb837792c81e310b5ba832a53eb362b5ca7aa25f506b83fb34126fe06ff76a",
+          "probe": {
+            "features/conv1_active_fraction": 0.5683782696723938,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6837595105171204,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.6250622868537903,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.3055572509765625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.287322998046875,
+            "q/max_observation_range": 1.3261643648147583,
+            "q/greedy_action_count": 3.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -20.8,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -20.0,
+              "length": 1162,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 1304,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 946,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 1006,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 882,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": []
+    },
+    {
+      "name": "pong-lr3e-5-seed-0-250k",
+      "run_id": "d8f720ebafc44fc19abb94aaa425a759",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 250000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 3e-05,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "a0e859c36207499a9d23c6fdf16ea0e9",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 100000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 3e-05,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": true,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "aedac7594b4db8f953b50feebed1a735f6d8b0ee9b00e87fb42742838784028a",
+              "cli.py": "ca571eb8b927d479b992d6af399b846637da957e38222be4d819a30f3cf1161e",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "a9ea263a3212da5522ecd64db4ee28938aa3a20499a5ddb5b5c1f85d816d3cf1"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 0
+        },
+        {
+          "schema_version": 1,
+          "segment_id": "425691743005467b983ec486ee2419e8",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "mps",
+            "torch_threads": 4,
+            "total_steps": 250000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 20000,
+            "train_every": 4,
+            "target_update_every": 10000,
+            "learning_rate": 3e-05,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.05,
+            "exploration_steps": 200000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "mps",
+          "runtime": {
+            "dirty": false,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.15.0",
+              "numpy": "2.5.4",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.12.14",
+            "device": "mps"
+          },
+          "resume_snapshot": "step-000000100000-0fcdb16b",
+          "agent_steps": 100000,
+          "reset_seed": 107
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 25000,
+          "checkpoint_sha256": "e1ecccacd4d93bef51c8544a9b9423a1dc8071dbe511976d1c8c9d51ad6177fa",
+          "probe": {
+            "features/conv1_active_fraction": 0.4097393751144409,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.4181164503097534,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.4476393163204193,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2733917236328125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.000145100086228922,
+            "q/max_observation_range": 0.0009336154907941818,
+            "q/greedy_action_count": 1.0
+          }
+        },
+        {
+          "step": 50000,
+          "checkpoint_sha256": "06d85b1e122b0ed7f2662afecf614c1d5a18abfe75550f73a7eab1af9ad44f67",
+          "probe": {
+            "features/conv1_active_fraction": 0.6700512766838074,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.7117769122123718,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.7128956317901611,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.264678955078125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.09565669298171997,
+            "q/max_observation_range": 0.5743327736854553,
+            "q/greedy_action_count": 2.0
+          }
+        },
+        {
+          "step": 75000,
+          "checkpoint_sha256": "72f80b132011f4458ba8474228937e42da18225cb6da66b4355f52ca5101b309",
+          "probe": {
+            "features/conv1_active_fraction": 0.6987103223800659,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6999421119689941,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.6774478554725647,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2652130126953125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.28564202785491943,
+            "q/max_observation_range": 1.4441678524017334,
+            "q/greedy_action_count": 2.0
+          }
+        },
+        {
+          "step": 100000,
+          "checkpoint_sha256": "4cceef3fd47b01564630a7130e30d8c380694c566c4c915507653de9c76c6434",
+          "probe": {
+            "features/conv1_active_fraction": 0.673919677734375,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6534936428070068,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.6042056679725647,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.27117919921875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.31481197476387024,
+            "q/max_observation_range": 1.327386736869812,
+            "q/greedy_action_count": 3.0
+          }
+        },
+        {
+          "step": 125000,
+          "checkpoint_sha256": "2279b80e120a3bcf88d63e20d5f5489b81d086753d4b6b597b47852df133aa1a",
+          "probe": {
+            "features/conv1_active_fraction": 0.637896716594696,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6462628245353699,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.5563192367553711,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2584228515625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.35562846064567566,
+            "q/max_observation_range": 1.22927725315094,
+            "q/greedy_action_count": 4.0
+          }
+        },
+        {
+          "step": 150000,
+          "checkpoint_sha256": "6fdd92efb177e1a0c4271815bd09c42f5d2057b77e4ff20e7b34a4c5c7dccd66",
+          "probe": {
+            "features/conv1_active_fraction": 0.6144799590110779,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6666756868362427,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.5401312112808228,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2543487548828125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.3696718215942383,
+            "q/max_observation_range": 1.1278830766677856,
+            "q/greedy_action_count": 5.0
+          }
+        },
+        {
+          "step": 175000,
+          "checkpoint_sha256": "d482b2a9ffbc351d8330a3ed7d031442c5d008fe82a8645aba5df06df82002ae",
+          "probe": {
+            "features/conv1_active_fraction": 0.6097332835197449,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6379575133323669,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.4922323524951935,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.25689697265625,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.40462660789489746,
+            "q/max_observation_range": 1.16650390625,
+            "q/greedy_action_count": 5.0
+          }
+        },
+        {
+          "step": 200000,
+          "checkpoint_sha256": "4259f2d075335466fe82748daace89580e28059963f497a24b98ab152f6f112e",
+          "probe": {
+            "features/conv1_active_fraction": 0.6135022044181824,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6184036731719971,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.46390455961227417,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.249481201171875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.39918479323387146,
+            "q/max_observation_range": 1.100999355316162,
+            "q/greedy_action_count": 4.0
+          }
+        },
+        {
+          "step": 225000,
+          "checkpoint_sha256": "c45c0dd85088e65515db8073c3e845d13e2b423db221bb4e4a9b11d97fbafe62",
+          "probe": {
+            "features/conv1_active_fraction": 0.6074084639549255,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6387171149253845,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.47894909977912903,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2490234375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.40167465806007385,
+            "q/max_observation_range": 1.1657049655914307,
+            "q/greedy_action_count": 4.0
+          }
+        },
+        {
+          "step": 250000,
+          "checkpoint_sha256": "b23535de2f910fe002e34c264bc73be0e6812af1c690f1c8b8dcb8d191c49f7f",
+          "probe": {
+            "features/conv1_active_fraction": 0.619335949420929,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.6545259356498718,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.49500757455825806,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.2523651123046875,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.4051583707332611,
+            "q/max_observation_range": 1.1840636730194092,
+            "q/greedy_action_count": 6.0
+          }
+        }
+      ],
+      "evaluations": [
+        {
+          "agent_steps": 50000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 100000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 150000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 200000,
+          "policy": "greedy",
+          "mean_return": -20.2,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 779,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -20.0,
+              "length": 835,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 790,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -19.0,
+              "length": 1174,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 840,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        },
+        {
+          "agent_steps": 250000,
+          "policy": "greedy",
+          "mean_return": -21.0,
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          }
+        }
+      ],
+      "heldout_evaluations": [
+        {
+          "schema_version": 1,
+          "evaluation_id": "4b33fb0805bf47d090d3c7a33f2433aa",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 3000000,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000001,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000002,
+              "return": -21.0,
+              "length": 757,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000003,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000004,
+              "return": -21.0,
+              "length": 761,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "run_id": "d8f720ebafc44fc19abb94aaa425a759",
+          "checkpoint": "step-000000250000-42569174.pt",
+          "agent_steps": 250000,
+          "evaluation_role": "heldout",
+          "device": "cpu"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "4a9ac503cbb649f79d47658648d2192c",
+          "policy": "random",
+          "episodes": [
+            {
+              "seed": 3000000,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000001,
+              "return": -21.0,
+              "length": 781,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000002,
+              "return": -21.0,
+              "length": 757,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000003,
+              "return": -20.0,
+              "length": 1000,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 3000004,
+              "return": -20.0,
+              "length": 951,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -20.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "run_id": "d8f720ebafc44fc19abb94aaa425a759",
+          "checkpoint": "step-000000250000-42569174.pt",
+          "agent_steps": 250000,
+          "evaluation_role": "heldout",
+          "device": "cpu"
+        }
+      ]
+    }
+  ],
+  "diagnosis_reports": [
+    {
+      "schema_version": 1,
+      "checkpoint": "runs/pong-seed-0-100k/checkpoints/step-000000025000-85bc14c1.pt",
+      "checkpoint_sha256": "b006173879ec13a72cf2defcb815c6a5db96cc52d119ab8fec5db7e358d2cd29",
+      "replay": "runs/pong-seed-0-100k/snapshots/step-000000100000-443f21fe/replay.npz",
+      "replay_sha256": "80eb2fe61064dbee38314ee4afbad624f5bdbc9f90c3e85857b38bde68fe272e",
+      "sample_seed": 20261107,
+      "samples": 32,
+      "optimizer": "fresh Adam; copied online weights used as target",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "runtime": {
+        "dirty": true,
+        "source_sha256": {
+          "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+          "config.py": "6492a1a2845d6fc63294603081d2a0c25c79d8e29cd315bdf0ec73154abd6308",
+          "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+          "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+          "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+          "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+          "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+          "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+          "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+          "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+          "training.py": "9055968184af4e1ffadd7d0551bf8ef95a40c23fb3ce30048adf414b1c0a70ce"
+        },
+        "dependencies": {
+          "classicsrl": "0.1.0",
+          "torch": "2.15.0",
+          "numpy": "2.5.4",
+          "gymnasium": "1.4.0",
+          "ale-py": "0.12.1",
+          "opencv-python-headless": "4.14.0.94"
+        },
+        "python": "3.12.14",
+        "device": "cpu"
+      },
+      "data": {
+        "replay_transitions": 99889,
+        "pixel_min": 52,
+        "pixel_max": 236,
+        "distinct_observations": 32,
+        "rewards": {
+          "-1.0": 3,
+          "0.0": 29
+        }
+      },
+      "devices": {
+        "cpu": {
+          "activations": {
+            "features/conv1_active_fraction": 0.075927734375,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.40492984652519226,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.11671914905309677,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.236328125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 2.3934937416925095e-05,
+            "q/max_observation_range": 0.00013429950922727585,
+            "q/greedy_action_count": 1.0
+          },
+          "update": {
+            "td_loss": 0.04712926596403122,
+            "q_mean": 0.013925652951002121,
+            "grad_norm": 0.07888539880514145
+          },
+          "gradient_norms": {
+            "layers.0.weight": 0.006769512314349413,
+            "layers.0.bias": 0.0012261997908353806,
+            "layers.2.weight": 0.004344515036791563,
+            "layers.2.bias": 0.00743586802855134,
+            "layers.4.weight": 0.011442643590271473,
+            "layers.4.bias": 0.025071026757359505,
+            "layers.7.weight": 0.006420869380235672,
+            "layers.7.bias": 0.019142162054777145,
+            "layers.9.weight": 0.014547710306942463,
+            "layers.9.bias": 0.06872141361236572
+          },
+          "parameter_change_norms": {
+            "layers.0.weight": 0.005954483523964882,
+            "layers.0.bias": 0.0003796513192355633,
+            "layers.2.weight": 0.00667381938546896,
+            "layers.2.bias": 0.0006691314629279077,
+            "layers.4.weight": 0.005546117667108774,
+            "layers.4.bias": 0.0003315859066788107,
+            "layers.7.weight": 0.021066933870315552,
+            "layers.7.bias": 0.001099968794733286,
+            "layers.9.weight": 0.002685403451323509,
+            "layers.9.bias": 0.00024494246463291347
+          }
+        },
+        "mps": {
+          "activations": {
+            "features/conv1_active_fraction": 0.075927734375,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.40492984652519226,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.11671914905309677,
+            "features/conv3_zero_fraction": 0.0,
+            "features/hidden_active_fraction": 0.236328125,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 2.393489376117941e-05,
+            "q/max_observation_range": 0.00013430044054985046,
+            "q/greedy_action_count": 1.0
+          },
+          "update": {
+            "td_loss": 0.04712926596403122,
+            "q_mean": 0.013925652951002121,
+            "grad_norm": 0.07888539880514145
+          },
+          "gradient_norms": {
+            "layers.0.weight": 0.006769522558897734,
+            "layers.0.bias": 0.0012261996744200587,
+            "layers.2.weight": 0.0043445127084851265,
+            "layers.2.bias": 0.007435867562890053,
+            "layers.4.weight": 0.011442642658948898,
+            "layers.4.bias": 0.025071026757359505,
+            "layers.7.weight": 0.006420868914574385,
+            "layers.7.bias": 0.019142162054777145,
+            "layers.9.weight": 0.014547709375619888,
+            "layers.9.bias": 0.06872141361236572
+          },
+          "parameter_change_norms": {
+            "layers.0.weight": 0.0059544844552874565,
+            "layers.0.bias": 0.0003796513192355633,
+            "layers.2.weight": 0.006673819851130247,
+            "layers.2.bias": 0.0006691314629279077,
+            "layers.4.weight": 0.005546117201447487,
+            "layers.4.bias": 0.0003315859066788107,
+            "layers.7.weight": 0.021066932007670403,
+            "layers.7.bias": 0.0010999685619026423,
+            "layers.9.weight": 0.002685403451323509,
+            "layers.9.bias": 0.00024494246463291347
+          }
+        }
+      },
+      "comparisons": {
+        "cpu_vs_mps": {
+          "q_max_abs_error": 1.1175870895385742e-08,
+          "td_loss_abs_error": 0.0,
+          "gradients_max_abs_error": 1.4260876923799515e-09,
+          "weights_max_abs_error": 1.4901161193847656e-07
+        }
+      }
+    },
+    {
+      "schema_version": 1,
+      "checkpoint": "runs/pong-seed-0-100k/checkpoints/step-000000100000-85bc14c1.pt",
+      "checkpoint_sha256": "e8f7885590ee8636f01dbb7a39765d01ff30ee6b4f73d62c7d0cec8f5452ff04",
+      "replay": "runs/pong-seed-0-100k/snapshots/step-000000100000-443f21fe/replay.npz",
+      "replay_sha256": "80eb2fe61064dbee38314ee4afbad624f5bdbc9f90c3e85857b38bde68fe272e",
+      "sample_seed": 20261107,
+      "samples": 128,
+      "optimizer": "fresh Adam; copied online weights used as target",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "mps",
+        "torch_threads": 4,
+        "total_steps": 100000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 20000,
+        "train_every": 4,
+        "target_update_every": 10000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "exploration_steps": 200000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "runtime": {
+        "dirty": false,
+        "source_sha256": {
+          "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+          "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+          "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+          "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+          "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+          "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+          "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+          "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+          "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+          "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+          "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570"
+        },
+        "dependencies": {
+          "classicsrl": "0.1.0",
+          "torch": "2.15.0",
+          "numpy": "2.5.4",
+          "gymnasium": "1.4.0",
+          "ale-py": "0.12.1",
+          "opencv-python-headless": "4.14.0.94"
+        },
+        "python": "3.12.14",
+        "device": "cpu"
+      },
+      "data": {
+        "replay_transitions": 99889,
+        "pixel_min": 52,
+        "pixel_max": 236,
+        "distinct_observations": 128,
+        "rewards": {
+          "-1.0": 5,
+          "0.0": 123
+        }
+      },
+      "devices": {
+        "cpu": {
+          "activations": {
+            "features/conv1_active_fraction": 0.06625793129205704,
+            "features/conv1_zero_fraction": 0.0,
+            "features/conv2_active_fraction": 0.4391486942768097,
+            "features/conv2_zero_fraction": 0.0,
+            "features/conv3_active_fraction": 0.0,
+            "features/conv3_zero_fraction": 1.0,
+            "features/hidden_active_fraction": 0.234375,
+            "features/hidden_zero_fraction": 0.0,
+            "q/observation_std": 0.0,
+            "q/max_observation_range": 0.0,
+            "q/greedy_action_count": 1.0
+          },
+          "update": {
+            "td_loss": 0.018455179408192635,
+            "q_mean": -0.11554083973169327,
+            "grad_norm": 0.027138469740748405
+          },
+          "gradient_norms": {
+            "layers.0.weight": 0.0,
+            "layers.0.bias": 0.0,
+            "layers.2.weight": 0.0,
+            "layers.2.bias": 0.0,
+            "layers.4.weight": 0.0,
+            "layers.4.bias": 0.0,
+            "layers.7.weight": 0.0,
+            "layers.7.bias": 0.010591805912554264,
+            "layers.9.weight": 0.007692380342632532,
+            "layers.9.bias": 0.023772619664669037
+          },
+          "parameter_change_norms": {
+            "layers.0.weight": 0.0,
+            "layers.0.bias": 0.0,
+            "layers.2.weight": 0.0,
+            "layers.2.bias": 0.0,
+            "layers.4.weight": 0.0,
+            "layers.4.bias": 0.0,
+            "layers.7.weight": 0.0,
+            "layers.7.bias": 0.0010953035671263933,
+            "layers.9.weight": 0.0026812152937054634,
+            "layers.9.bias": 0.0002449462772347033
+          }
+        }
+      },
+      "comparisons": {}
+    }
+  ]
+}

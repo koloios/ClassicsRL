@@ -1,0 +1,5364 @@
+{
+  "schema_version": 1,
+  "kind": "posthoc_common_validation_prefix",
+  "common_available_budget": 1300000,
+  "runs": [
+    {
+      "name": "8b6419b4ee2340e4a8f6b85b99920f16",
+      "run_id": "8b6419b4ee2340e4a8f6b85b99920f16",
+      "implementation": "classicsrl.DQN",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "cuda",
+        "torch_threads": 4,
+        "total_steps": 2000000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 80000,
+        "train_every": 4,
+        "target_update_every": 1000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.01,
+        "exploration_steps": 1000000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "aa318d5d4dcf4393add6628af4f0aafd",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 1000000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "cuda",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 0
+        },
+        {
+          "schema_version": 1,
+          "segment_id": "0232ac2d13d6494d97b4693e825a5788",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 1800000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "cuda",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda"
+          },
+          "resume_snapshot": "step-000001000000-e11f5f7f",
+          "agent_steps": 1000000,
+          "reset_seed": 786
+        },
+        {
+          "schema_version": 1,
+          "segment_id": "6d780c198d5e40879be1392475149368",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 2000000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "cuda",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda"
+          },
+          "resume_snapshot": "step-000001200000-d5dd3f5d",
+          "agent_steps": 1200000,
+          "reset_seed": 869
+        }
+      ],
+      "evaluations": [
+        {
+          "schema_version": 1,
+          "evaluation_id": "71d9604b9ed6412982db90423e7387be",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000050000-aa318d5d.pt",
+          "agent_steps": 50000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "2c5c971f038440da8b78df4018cd946c",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000100000-aa318d5d.pt",
+          "agent_steps": 100000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "cbb2fee2a528441e99103fe18b74f174",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000150000-aa318d5d.pt",
+          "agent_steps": 150000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "ffbc018f84d947b98fc69bbf5b3dabb9",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000200000-aa318d5d.pt",
+          "agent_steps": 200000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "64b050e0910c4d46a95a8ed65e36ac1c",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000250000-aa318d5d.pt",
+          "agent_steps": 250000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "56e87bcd4e274f108f50738ece81fecf",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 820,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 880,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 824,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 886,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 822,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000300000-aa318d5d.pt",
+          "agent_steps": 300000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "37eafca4aa9e4c23842da125fefd5feb",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 839,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 776,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 883,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 809,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 1033,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000350000-aa318d5d.pt",
+          "agent_steps": 350000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "5b8335f88a97407db1b3889fbb9daf04",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -20.0,
+              "length": 898,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -20.0,
+              "length": 1257,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 1132,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 886,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 885,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -20.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000400000-aa318d5d.pt",
+          "agent_steps": 400000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "50d3fa82506e4fe6be072c6b4bbe8fc2",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -7.0,
+              "length": 2890,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 1241,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 1040,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 1333,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -14.0,
+              "length": 2212,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000450000-aa318d5d.pt",
+          "agent_steps": 450000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "df8e2398a1694288a8fd7411c2a455b6",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -18.0,
+              "length": 1952,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -20.0,
+              "length": 1748,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1781,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -18.0,
+              "length": 1794,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -18.0,
+              "length": 2412,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -18.4,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000500000-aa318d5d.pt",
+          "agent_steps": 500000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "e52e5c7c7552449283a22b4a745242e1",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -18.0,
+              "length": 1347,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -15.0,
+              "length": 1707,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1253,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -16.0,
+              "length": 1585,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -19.0,
+              "length": 1214,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -17.2,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000550000-aa318d5d.pt",
+          "agent_steps": 550000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "8c4cbf0efa7247f7917ef71fea019803",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -18.0,
+              "length": 1522,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -11.0,
+              "length": 1964,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -16.0,
+              "length": 1691,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -18.0,
+              "length": 1496,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -16.0,
+              "length": 1581,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -15.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000600000-aa318d5d.pt",
+          "agent_steps": 600000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "b594fd0b726a40e8968e4943c36dac0c",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -12.0,
+              "length": 2055,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -18.0,
+              "length": 1573,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1736,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -17.0,
+              "length": 1668,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -18.0,
+              "length": 1999,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000650000-aa318d5d.pt",
+          "agent_steps": 650000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "57f4788f4d1b49689d4d5f81b109d701",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -14.0,
+              "length": 2284,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -13.0,
+              "length": 2473,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1858,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -13.0,
+              "length": 2540,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -16.0,
+              "length": 1774,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -14.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000700000-aa318d5d.pt",
+          "agent_steps": 700000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "f9a41bd380734498b6ac041637d31e18",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -17.0,
+              "length": 1375,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -12.0,
+              "length": 1845,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -14.0,
+              "length": 1978,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -17.0,
+              "length": 1384,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 1003,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000750000-aa318d5d.pt",
+          "agent_steps": 750000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "5023824c8d0b4c53b992dc8c3b154b66",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -14.0,
+              "length": 2436,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -19.0,
+              "length": 2017,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 1767,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -19.0,
+              "length": 2039,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -18.0,
+              "length": 2053,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -18.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000800000-aa318d5d.pt",
+          "agent_steps": 800000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "c3e2895d83ac4373bd7ec9aae9701b63",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -12.0,
+              "length": 2960,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -17.0,
+              "length": 2423,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -17.0,
+              "length": 2242,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -16.0,
+              "length": 2427,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 2236,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.4,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000850000-aa318d5d.pt",
+          "agent_steps": 850000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "563c6f5f78934e28b292018d05eb3ae9",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -17.0,
+              "length": 2228,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -16.0,
+              "length": 2558,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -19.0,
+              "length": 2185,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -12.0,
+              "length": 2778,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 2130,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000900000-aa318d5d.pt",
+          "agent_steps": 900000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "8fcd0708c4e648db9c47e6ce8dd272d2",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -19.0,
+              "length": 1639,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -18.0,
+              "length": 1777,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -15.0,
+              "length": 2530,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 1079,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 852,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -18.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000950000-aa318d5d.pt",
+          "agent_steps": 950000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "a2a20b20b1564ec5bd4f3ea0e3989300",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -13.0,
+              "length": 2329,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -12.0,
+              "length": 2498,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -16.0,
+              "length": 2470,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -13.0,
+              "length": 2167,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -12.0,
+              "length": 2564,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -13.2,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001000000-aa318d5d.pt",
+          "agent_steps": 1000000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "550cbbebb21c4fb1a297b2ec17bd06f3",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -15.0,
+              "length": 2541,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -16.0,
+              "length": 2430,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -15.0,
+              "length": 2283,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -12.0,
+              "length": 2348,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -12.0,
+              "length": 2173,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -14.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001050000-0232ac2d.pt",
+          "agent_steps": 1050000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "f545ef19173344cd952eb2cb3a3396ef",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -12.0,
+              "length": 2323,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": 1.0,
+              "length": 3095,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 1570,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -4.0,
+              "length": 2859,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -15.0,
+              "length": 2075,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -10.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001100000-0232ac2d.pt",
+          "agent_steps": 1100000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "de15cd2ba2984796bfeedf04f0f2e3e1",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -13.0,
+              "length": 2440,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -3.0,
+              "length": 3013,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -11.0,
+              "length": 2538,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -7.0,
+              "length": 2994,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -6.0,
+              "length": 2904,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -8.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001150000-0232ac2d.pt",
+          "agent_steps": 1150000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "04c7ba2f5afe4487800cd743600bb62a",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -8.0,
+              "length": 2992,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -8.0,
+              "length": 2746,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -10.0,
+              "length": 2404,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -11.0,
+              "length": 2621,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -3.0,
+              "length": 3455,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -8.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001200000-0232ac2d.pt",
+          "agent_steps": 1200000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "4dcec14d6b1143328f657a3af649f544",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -6.0,
+              "length": 3753,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -9.0,
+              "length": 3259,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -1.0,
+              "length": 4182,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -13.0,
+              "length": 3113,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -11.0,
+              "length": 2964,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -8.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001250000-6d780c19.pt",
+          "agent_steps": 1250000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "909c3a2e7f284119be418e2628ccc821",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -10.0,
+              "length": 2695,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -6.0,
+              "length": 3207,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -5.0,
+              "length": 3256,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -9.0,
+              "length": 2803,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -8.0,
+              "length": 2749,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -7.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001300000-6d780c19.pt",
+          "agent_steps": 1300000,
+          "run_id": "8b6419b4ee2340e4a8f6b85b99920f16"
+        }
+      ]
+    },
+    {
+      "name": "65eaabef0a6c44b3b95992d8db2cb26e",
+      "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+      "implementation": "stable_baselines3.DQN",
+      "config": {
+        "env_id": "ALE/Pong-v5",
+        "seed": 0,
+        "device": "cuda",
+        "torch_threads": 4,
+        "total_steps": 2000000,
+        "replay_capacity": 100000,
+        "batch_size": 32,
+        "learning_starts": 80000,
+        "train_every": 4,
+        "target_update_every": 1000,
+        "learning_rate": 0.0001,
+        "gamma": 0.99,
+        "max_grad_norm": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.01,
+        "exploration_steps": 1000000,
+        "frame_skip": 4,
+        "noop_max": 30,
+        "sticky_action_probability": 0.25,
+        "fire_on_reset": true,
+        "max_episode_steps": 27000,
+        "eval_every": 50000,
+        "eval_episodes": 5,
+        "eval_seed": 1000000,
+        "checkpoint_every": 25000,
+        "snapshot_every": 100000,
+        "log_every": 1000
+      },
+      "training_segments": [
+        {
+          "event": "start",
+          "segment_id": "ba95b5ff54bc45848e491156fba1d5e5",
+          "agent_steps": 0,
+          "device": "cuda",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 2000000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "implementation": "stable_baselines3.DQN",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda",
+            "reference_version": "2.9.2",
+            "harness_sha256": "7c56f94e6ba455ea32ed154e2773664da272119a7c419e978b225ea924bbbcb5"
+          },
+          "comparison_limits": [
+            "Shares ClassicsRL wrappers and evaluator; these require separate validation.",
+            "SB3 uses uniform random actions during warm-up and its native reset and RNG behavior.",
+            "SB3 synchronizes targets before a boundary update; ClassicsRL does so after it.",
+            "Warm-up threshold is adjusted by one step to match the first optimizer update.",
+            "Playback weights persist periodically; these are not full recovery snapshots."
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "schema_version": 1,
+          "evaluation_id": "3ec626a1135f4782b9fcb968df706dc0",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000050000-ba95b5ff.pt",
+          "agent_steps": 50000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "3478e6e9e82847228d908fdf3b39c310",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000100000-ba95b5ff.pt",
+          "agent_steps": 100000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "cd8e38ab44ba47038b86b0df575f8af5",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 840,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 790,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -20.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000150000-ba95b5ff.pt",
+          "agent_steps": 150000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "f67adaa6f3ff4479bd11fe62af21c81e",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 760,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 758,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -21.0,
+              "length": 762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -21.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000200000-ba95b5ff.pt",
+          "agent_steps": 200000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "ed1ed999921f47fba99882e434e17d38",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -21.0,
+              "length": 820,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -21.0,
+              "length": 820,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 1165,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 763,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -19.0,
+              "length": 1206,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -20.4,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000250000-ba95b5ff.pt",
+          "agent_steps": 250000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "55981adec74c456a8eab1daaa085af58",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -19.0,
+              "length": 1172,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -19.0,
+              "length": 1213,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -17.0,
+              "length": 1577,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -19.0,
+              "length": 1278,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 1325,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -18.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000300000-ba95b5ff.pt",
+          "agent_steps": 300000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "5f463ebe10564ffa9c8f318f7fda7a61",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -16.0,
+              "length": 1502,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -19.0,
+              "length": 1138,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 1339,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -16.0,
+              "length": 1651,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -17.0,
+              "length": 1479,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -17.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000350000-ba95b5ff.pt",
+          "agent_steps": 350000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "d0a22186623b419d8e0094fae5c5d387",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -19.0,
+              "length": 1614,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -18.0,
+              "length": 1527,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1412,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 1554,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -19.0,
+              "length": 1359,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -19.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000400000-ba95b5ff.pt",
+          "agent_steps": 400000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "5a9c58b370a044fb9efe3248016edef5",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -20.0,
+              "length": 1557,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -18.0,
+              "length": 1210,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1330,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -18.0,
+              "length": 1253,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -19.0,
+              "length": 1447,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -18.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000450000-ba95b5ff.pt",
+          "agent_steps": 450000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "f047b8daef3d4a129dde16a7f48aa8df",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -20.0,
+              "length": 1600,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -18.0,
+              "length": 1837,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -20.0,
+              "length": 1068,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 1181,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -18.0,
+              "length": 1612,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -19.4,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000500000-ba95b5ff.pt",
+          "agent_steps": 500000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "3182974373014f4d86d1ba3a94ea0c2d",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -19.0,
+              "length": 1874,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -16.0,
+              "length": 1822,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 1762,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -17.0,
+              "length": 1811,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -18.0,
+              "length": 1821,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -17.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000550000-ba95b5ff.pt",
+          "agent_steps": 550000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "f00428c98f5541de832dde0f3b840d8a",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -17.0,
+              "length": 2105,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -19.0,
+              "length": 1677,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -19.0,
+              "length": 1829,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -21.0,
+              "length": 1309,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -19.0,
+              "length": 1864,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -19.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000600000-ba95b5ff.pt",
+          "agent_steps": 600000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "c600b09232cc40e1beb682e7499c11e9",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -19.0,
+              "length": 1787,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -17.0,
+              "length": 1956,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -18.0,
+              "length": 2238,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -17.0,
+              "length": 1889,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -20.0,
+              "length": 1838,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -18.2,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000650000-ba95b5ff.pt",
+          "agent_steps": 650000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "882f55473e204a81b897aaf42e652984",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -19.0,
+              "length": 1962,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -11.0,
+              "length": 2629,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -16.0,
+              "length": 2018,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -20.0,
+              "length": 1721,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -14.0,
+              "length": 2501,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000700000-ba95b5ff.pt",
+          "agent_steps": 700000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "17026a5d061d4e15ac1115492cf6473a",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -17.0,
+              "length": 1987,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -20.0,
+              "length": 1472,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -17.0,
+              "length": 2383,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -16.0,
+              "length": 2039,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -14.0,
+              "length": 2209,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -16.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000750000-ba95b5ff.pt",
+          "agent_steps": 750000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "5573ebaed0004acc8f849d00cad57144",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -12.0,
+              "length": 1879,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -16.0,
+              "length": 1629,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -12.0,
+              "length": 2198,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -11.0,
+              "length": 2024,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -14.0,
+              "length": 2040,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -13.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000800000-ba95b5ff.pt",
+          "agent_steps": 800000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "684f7b8191984db1b573a140ad071e3f",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -14.0,
+              "length": 2055,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -13.0,
+              "length": 1908,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -16.0,
+              "length": 2143,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -14.0,
+              "length": 2170,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -12.0,
+              "length": 2317,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -13.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000850000-ba95b5ff.pt",
+          "agent_steps": 850000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "5f8101ae62ca4bf68f39007972590794",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -8.0,
+              "length": 2404,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -16.0,
+              "length": 1961,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -14.0,
+              "length": 2066,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -16.0,
+              "length": 1795,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -11.0,
+              "length": 2373,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -13.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000900000-ba95b5ff.pt",
+          "agent_steps": 900000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "185462ab9f5d42b8a6e7cb4ce75bf1f2",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -6.0,
+              "length": 2794,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -4.0,
+              "length": 2681,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -13.0,
+              "length": 2223,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -13.0,
+              "length": 1879,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -15.0,
+              "length": 1978,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -10.2,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000000950000-ba95b5ff.pt",
+          "agent_steps": 950000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "b9c45071cddc4de09c751535afdf129b",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -12.0,
+              "length": 2021,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -12.0,
+              "length": 2066,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -14.0,
+              "length": 1962,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -12.0,
+              "length": 1958,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -13.0,
+              "length": 2137,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -12.6,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001000000-ba95b5ff.pt",
+          "agent_steps": 1000000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "28bc276c9fd04740b60edeb231d8f30d",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -10.0,
+              "length": 2483,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -10.0,
+              "length": 2223,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -8.0,
+              "length": 2881,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -11.0,
+              "length": 2196,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -17.0,
+              "length": 1881,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -11.2,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001050000-ba95b5ff.pt",
+          "agent_steps": 1050000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "b58a599e7b8e452eb846ed1882faf30e",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -8.0,
+              "length": 2640,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": 1.0,
+              "length": 2996,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -13.0,
+              "length": 2380,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": 1.0,
+              "length": 3028,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -17.0,
+              "length": 2296,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -7.2,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001100000-ba95b5ff.pt",
+          "agent_steps": 1100000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "48682c976a8b42dca36ec129e09a5913",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -13.0,
+              "length": 2163,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -6.0,
+              "length": 2500,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -14.0,
+              "length": 2225,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -11.0,
+              "length": 2324,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -11.0,
+              "length": 2724,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -11.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001150000-ba95b5ff.pt",
+          "agent_steps": 1150000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "3abe932e027845c0802ea3da23f33bfa",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": 6.0,
+              "length": 2693,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": 14.0,
+              "length": 2149,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -6.0,
+              "length": 2772,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -3.0,
+              "length": 2697,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -13.0,
+              "length": 2272,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -0.4,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001200000-ba95b5ff.pt",
+          "agent_steps": 1200000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "81b0aaab421c4040b6837b22595f7bc7",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": -6.0,
+              "length": 2912,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -1.0,
+              "length": 3421,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -9.0,
+              "length": 2785,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": -8.0,
+              "length": 2706,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -5.0,
+              "length": 3191,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -5.8,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001250000-ba95b5ff.pt",
+          "agent_steps": 1250000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        },
+        {
+          "schema_version": 1,
+          "evaluation_id": "a03d28cfa8ae40eca109c3b569e1fe84",
+          "policy": "greedy",
+          "episodes": [
+            {
+              "seed": 1000000,
+              "return": 9.0,
+              "length": 2356,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000001,
+              "return": -11.0,
+              "length": 2215,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000002,
+              "return": -6.0,
+              "length": 3056,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000003,
+              "return": 6.0,
+              "length": 2603,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            },
+            {
+              "seed": 1000004,
+              "return": -13.0,
+              "length": 2557,
+              "terminated": true,
+              "truncated": false,
+              "video": null
+            }
+          ],
+          "mean_return": -3.0,
+          "environment": {
+            "env_id": "ALE/Pong-v5",
+            "ale_frameskip": 1,
+            "sticky_action_probability": 0.25,
+            "full_action_space": false,
+            "source_observation": "rgb",
+            "wrappers": [
+              {
+                "name": "FrameCounter"
+              },
+              {
+                "name": "AtariPreprocessing",
+                "noop_max": 30,
+                "frame_skip": 4,
+                "screen_size": 84,
+                "max_pool_last_frames": 2,
+                "terminal_on_life_loss": false,
+                "grayscale_obs": true,
+                "scale_obs": false
+              },
+              {
+                "name": "FireOnReset",
+                "startup_actions": [
+                  "FIRE"
+                ]
+              },
+              {
+                "name": "FrameStackObservation",
+                "stack_size": 4,
+                "padding_type": "reset"
+              },
+              {
+                "name": "TimeLimit",
+                "max_episode_steps": 27000
+              }
+            ]
+          },
+          "action_names": [
+            "NOOP",
+            "FIRE",
+            "RIGHT",
+            "LEFT",
+            "RIGHTFIRE",
+            "LEFTFIRE"
+          ],
+          "checkpoint": "checkpoints/step-000001300000-ba95b5ff.pt",
+          "agent_steps": 1300000,
+          "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+          "implementation": "stable_baselines3.DQN"
+        }
+      ]
+    }
+  ]
+}

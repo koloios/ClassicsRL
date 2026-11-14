@@ -1,0 +1,16 @@
+# Exercises preprocessing, inference, replay, gradients, and recovery in a short run.
+env_id = "ALE/Pong-v5"
+device = "cpu"
+total_steps = 256
+replay_capacity = 128
+batch_size = 8
+learning_starts = 32
+train_every = 4
+target_update_every = 64
+epsilon_start = 0.1
+epsilon_end = 0.1
+exploration_steps = 1
+eval_every = 0
+checkpoint_every = 128
+snapshot_every = 256
+log_every = 64

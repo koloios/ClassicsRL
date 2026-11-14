@@ -1,0 +1,15 @@
+# Short throughput check with batch size 32 and gradients active after 128 steps.
+# This deliberately differs from the longer learning recipe in pong.toml.
+env_id = "ALE/Pong-v5"
+device = "auto"
+total_steps = 4096
+replay_capacity = 4096
+batch_size = 32
+learning_starts = 128
+epsilon_start = 0.1
+epsilon_end = 0.1
+exploration_steps = 1
+eval_every = 0
+checkpoint_every = 4096
+snapshot_every = 4096
+log_every = 512

@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "classicsrl"
+version = "0.1.0"
+description = "A lightweight toolkit for training, evaluating, and visualizing reinforcement learning agents on classic games."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+    "gymnasium>=1.1,<2",
+    "numpy>=1.26,<3",
+    "torch>=2.5,<3",
+]
+
+[project.optional-dependencies]
+atari = ["ale-py>=0.10,<0.13", "opencv-python-headless>=4.10,<5"]
+video = ["imageio[ffmpeg]>=2.36,<3"]
+dashboard = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "httpx>=0.28,<1"]
+
+[project.scripts]
+classicsrl = "classicsrl.cli:main"
+
+[project.urls]
+Repository = "https://github.com/koloios/ClassicsRL"
+Issues = "https://github.com/koloios/ClassicsRL/issues"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["atari: requires optional Atari dependencies and a usable Pong ROM"]

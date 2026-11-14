@@ -1,0 +1,27 @@
+# Python and development tools
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Local settings and credentials
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Generated experiment data and game content
+/runs/
+/artifacts/
+/roms/
+*.pt
+*.pth
+*.ckpt
+
+# Future frontend dependencies
+node_modules/

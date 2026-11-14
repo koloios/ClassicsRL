@@ -1,0 +1,2094 @@
+{
+  "schema_version": 1,
+  "kind": "posthoc_common_budget_after_interruption",
+  "common_available_budget": 1300000,
+  "selection_rule": "highest validation mean within the common budget; ties prefer latest",
+  "test_seeds": [
+    7000000,
+    7000001,
+    7000002,
+    7000003,
+    7000004,
+    7000005,
+    7000006,
+    7000007,
+    7000008,
+    7000009,
+    7000010,
+    7000011,
+    7000012,
+    7000013,
+    7000014,
+    7000015,
+    7000016,
+    7000017,
+    7000018,
+    7000019,
+    7000020,
+    7000021,
+    7000022,
+    7000023,
+    7000024,
+    7000025,
+    7000026,
+    7000027,
+    7000028,
+    7000029,
+    7000030,
+    7000031,
+    7000032,
+    7000033,
+    7000034,
+    7000035,
+    7000036,
+    7000037,
+    7000038,
+    7000039,
+    7000040,
+    7000041,
+    7000042,
+    7000043,
+    7000044,
+    7000045,
+    7000046,
+    7000047,
+    7000048,
+    7000049
+  ],
+  "environment": {
+    "env_id": "ALE/Pong-v5",
+    "ale_frameskip": 1,
+    "sticky_action_probability": 0.25,
+    "full_action_space": false,
+    "source_observation": "rgb",
+    "wrappers": [
+      {
+        "name": "FrameCounter"
+      },
+      {
+        "name": "AtariPreprocessing",
+        "noop_max": 30,
+        "frame_skip": 4,
+        "screen_size": 84,
+        "max_pool_last_frames": 2,
+        "terminal_on_life_loss": false,
+        "grayscale_obs": true,
+        "scale_obs": false
+      },
+      {
+        "name": "FireOnReset",
+        "startup_actions": [
+          "FIRE"
+        ]
+      },
+      {
+        "name": "FrameStackObservation",
+        "stack_size": 4,
+        "padding_type": "reset"
+      },
+      {
+        "name": "TimeLimit",
+        "max_episode_steps": 27000
+      }
+    ]
+  },
+  "selections": [
+    {
+      "source_run": "runs/8b6419b4ee2340e4a8f6b85b99920f16",
+      "run_id": "8b6419b4ee2340e4a8f6b85b99920f16",
+      "implementation": "classicsrl.DQN",
+      "declared_training_budget": 2000000,
+      "source_max_validation_step": 2000000,
+      "source_training_segments": [
+        {
+          "schema_version": 1,
+          "segment_id": "aa318d5d4dcf4393add6628af4f0aafd",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 1000000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "cuda",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda"
+          },
+          "resume_snapshot": null,
+          "agent_steps": 0,
+          "reset_seed": 0
+        },
+        {
+          "schema_version": 1,
+          "segment_id": "0232ac2d13d6494d97b4693e825a5788",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 1800000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "cuda",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda"
+          },
+          "resume_snapshot": "step-000001000000-e11f5f7f",
+          "agent_steps": 1000000,
+          "reset_seed": 786
+        },
+        {
+          "schema_version": 1,
+          "segment_id": "6d780c198d5e40879be1392475149368",
+          "event": "start",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 2000000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "device": "cuda",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda"
+          },
+          "resume_snapshot": "step-000001200000-d5dd3f5d",
+          "agent_steps": 1200000,
+          "reset_seed": 869
+        }
+      ],
+      "comparison_limits": [],
+      "checkpoint": "runs/8b6419b4ee2340e4a8f6b85b99920f16/checkpoints/step-000001300000-6d780c19.pt",
+      "checkpoint_sha256": "91adffbdd813911d1a491e34fac65fb44bd9f66a2fc3e914455cae8206ffe561",
+      "selected_steps": 1300000,
+      "selected_updates": 305001,
+      "validation_mean": -7.6
+    },
+    {
+      "source_run": "runs/65eaabef0a6c44b3b95992d8db2cb26e",
+      "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+      "implementation": "stable_baselines3.DQN",
+      "declared_training_budget": 2000000,
+      "source_max_validation_step": 1300000,
+      "source_training_segments": [
+        {
+          "event": "start",
+          "segment_id": "ba95b5ff54bc45848e491156fba1d5e5",
+          "agent_steps": 0,
+          "device": "cuda",
+          "config": {
+            "env_id": "ALE/Pong-v5",
+            "seed": 0,
+            "device": "cuda",
+            "torch_threads": 4,
+            "total_steps": 2000000,
+            "replay_capacity": 100000,
+            "batch_size": 32,
+            "learning_starts": 80000,
+            "train_every": 4,
+            "target_update_every": 1000,
+            "learning_rate": 0.0001,
+            "gamma": 0.99,
+            "max_grad_norm": 10.0,
+            "epsilon_start": 1.0,
+            "epsilon_end": 0.01,
+            "exploration_steps": 1000000,
+            "frame_skip": 4,
+            "noop_max": 30,
+            "sticky_action_probability": 0.25,
+            "fire_on_reset": true,
+            "max_episode_steps": 27000,
+            "eval_every": 50000,
+            "eval_episodes": 5,
+            "eval_seed": 1000000,
+            "checkpoint_every": 25000,
+            "snapshot_every": 100000,
+            "log_every": 1000
+          },
+          "implementation": "stable_baselines3.DQN",
+          "runtime": {
+            "dirty": null,
+            "source_sha256": {
+              "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+              "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+              "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+              "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+              "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+              "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+              "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+              "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+              "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+              "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+              "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80"
+            },
+            "dependencies": {
+              "classicsrl": "0.1.0",
+              "torch": "2.14.1+cu130",
+              "numpy": "2.4.6",
+              "gymnasium": "1.4.0",
+              "ale-py": "0.12.1",
+              "opencv-python-headless": "4.14.0.94"
+            },
+            "python": "3.13.16",
+            "device": "cuda",
+            "reference_version": "2.9.2",
+            "harness_sha256": "7c56f94e6ba455ea32ed154e2773664da272119a7c419e978b225ea924bbbcb5"
+          },
+          "comparison_limits": [
+            "Shares ClassicsRL wrappers and evaluator; these require separate validation.",
+            "SB3 uses uniform random actions during warm-up and its native reset and RNG behavior.",
+            "SB3 synchronizes targets before a boundary update; ClassicsRL does so after it.",
+            "Warm-up threshold is adjusted by one step to match the first optimizer update.",
+            "Playback weights persist periodically; these are not full recovery snapshots."
+          ]
+        }
+      ],
+      "comparison_limits": [
+        "Shares ClassicsRL wrappers and evaluator; these require separate validation.",
+        "SB3 uses uniform random actions during warm-up and its native reset and RNG behavior.",
+        "SB3 synchronizes targets before a boundary update; ClassicsRL does so after it.",
+        "Warm-up threshold is adjusted by one step to match the first optimizer update.",
+        "Playback weights persist periodically; these are not full recovery snapshots."
+      ],
+      "checkpoint": "runs/65eaabef0a6c44b3b95992d8db2cb26e/checkpoints/step-000001200000-ba95b5ff.pt",
+      "checkpoint_sha256": "2e8060e79ce91130012c8173650698d98af33835d27052bfd24071555f0ae57a",
+      "selected_steps": 1200000,
+      "selected_updates": 280001,
+      "validation_mean": -0.4
+    }
+  ],
+  "harness_sha256": "49185faef5c7a1206357ab0833a795b861dfeafa4b6f7da0b14f13403d9a5bee",
+  "runtime": {
+    "dirty": null,
+    "source_sha256": {
+      "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+      "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+      "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+      "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+      "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+      "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+      "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+      "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+      "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+      "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+      "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f"
+    },
+    "dependencies": {
+      "classicsrl": "0.1.0",
+      "torch": "2.14.1+cu130",
+      "numpy": "2.4.6",
+      "gymnasium": "1.4.0",
+      "ale-py": "0.12.1",
+      "opencv-python-headless": "4.14.0.94"
+    },
+    "python": "3.13.16",
+    "device": "cuda"
+  },
+  "limitations": [
+    "The common budget was chosen after an external interruption, before these tests.",
+    "This is not completion of either source run's larger declared training budget.",
+    "One training seed and differing recovery/RNG behavior do not establish superiority."
+  ],
+  "evaluations": [
+    {
+      "schema_version": 1,
+      "evaluation_id": "e2d6ce0298a14857ae66ceb691f7be81",
+      "policy": "greedy",
+      "episodes": [
+        {
+          "seed": 7000000,
+          "return": -8.0,
+          "length": 3227,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000001,
+          "return": -4.0,
+          "length": 3527,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000002,
+          "return": -8.0,
+          "length": 3170,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000003,
+          "return": -7.0,
+          "length": 3339,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000004,
+          "return": -2.0,
+          "length": 3971,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000005,
+          "return": -8.0,
+          "length": 2787,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000006,
+          "return": -8.0,
+          "length": 2686,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000007,
+          "return": -6.0,
+          "length": 3104,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000008,
+          "return": 3.0,
+          "length": 3952,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000009,
+          "return": -2.0,
+          "length": 3475,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000010,
+          "return": -7.0,
+          "length": 2926,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000011,
+          "return": -4.0,
+          "length": 3287,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000012,
+          "return": -12.0,
+          "length": 2680,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000013,
+          "return": -6.0,
+          "length": 2968,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000014,
+          "return": -8.0,
+          "length": 2801,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000015,
+          "return": -7.0,
+          "length": 3219,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000016,
+          "return": -11.0,
+          "length": 2561,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000017,
+          "return": 7.0,
+          "length": 3374,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000018,
+          "return": -12.0,
+          "length": 2350,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000019,
+          "return": -4.0,
+          "length": 3305,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000020,
+          "return": 1.0,
+          "length": 4141,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000021,
+          "return": -5.0,
+          "length": 3455,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000022,
+          "return": -13.0,
+          "length": 2148,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000023,
+          "return": -4.0,
+          "length": 3291,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000024,
+          "return": -5.0,
+          "length": 3952,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000025,
+          "return": -3.0,
+          "length": 3460,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000026,
+          "return": -11.0,
+          "length": 2372,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000027,
+          "return": -11.0,
+          "length": 2667,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000028,
+          "return": -7.0,
+          "length": 2990,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000029,
+          "return": -7.0,
+          "length": 2717,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000030,
+          "return": -12.0,
+          "length": 2458,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000031,
+          "return": -4.0,
+          "length": 3682,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000032,
+          "return": -6.0,
+          "length": 3008,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000033,
+          "return": -5.0,
+          "length": 3607,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000034,
+          "return": 3.0,
+          "length": 3797,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000035,
+          "return": -10.0,
+          "length": 3044,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000036,
+          "return": -6.0,
+          "length": 3819,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000037,
+          "return": -2.0,
+          "length": 3817,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000038,
+          "return": -9.0,
+          "length": 3130,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000039,
+          "return": 1.0,
+          "length": 3635,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000040,
+          "return": -6.0,
+          "length": 3349,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000041,
+          "return": -6.0,
+          "length": 2836,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000042,
+          "return": -1.0,
+          "length": 3902,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000043,
+          "return": 5.0,
+          "length": 3240,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000044,
+          "return": -5.0,
+          "length": 3528,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000045,
+          "return": -8.0,
+          "length": 3154,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000046,
+          "return": -5.0,
+          "length": 3060,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000047,
+          "return": -7.0,
+          "length": 3176,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000048,
+          "return": -4.0,
+          "length": 3628,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000049,
+          "return": -9.0,
+          "length": 2647,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        }
+      ],
+      "mean_return": -5.5,
+      "environment": {
+        "env_id": "ALE/Pong-v5",
+        "ale_frameskip": 1,
+        "sticky_action_probability": 0.25,
+        "full_action_space": false,
+        "source_observation": "rgb",
+        "wrappers": [
+          {
+            "name": "FrameCounter"
+          },
+          {
+            "name": "AtariPreprocessing",
+            "noop_max": 30,
+            "frame_skip": 4,
+            "screen_size": 84,
+            "max_pool_last_frames": 2,
+            "terminal_on_life_loss": false,
+            "grayscale_obs": true,
+            "scale_obs": false
+          },
+          {
+            "name": "FireOnReset",
+            "startup_actions": [
+              "FIRE"
+            ]
+          },
+          {
+            "name": "FrameStackObservation",
+            "stack_size": 4,
+            "padding_type": "reset"
+          },
+          {
+            "name": "TimeLimit",
+            "max_episode_steps": 27000
+          }
+        ]
+      },
+      "action_names": [
+        "NOOP",
+        "FIRE",
+        "RIGHT",
+        "LEFT",
+        "RIGHTFIRE",
+        "LEFTFIRE"
+      ],
+      "evaluation_role": "posthoc_heldout",
+      "selection": {
+        "source_run": "runs/8b6419b4ee2340e4a8f6b85b99920f16",
+        "run_id": "8b6419b4ee2340e4a8f6b85b99920f16",
+        "implementation": "classicsrl.DQN",
+        "declared_training_budget": 2000000,
+        "source_max_validation_step": 2000000,
+        "source_training_segments": [
+          {
+            "schema_version": 1,
+            "segment_id": "aa318d5d4dcf4393add6628af4f0aafd",
+            "event": "start",
+            "config": {
+              "env_id": "ALE/Pong-v5",
+              "seed": 0,
+              "device": "cuda",
+              "torch_threads": 4,
+              "total_steps": 1000000,
+              "replay_capacity": 100000,
+              "batch_size": 32,
+              "learning_starts": 80000,
+              "train_every": 4,
+              "target_update_every": 1000,
+              "learning_rate": 0.0001,
+              "gamma": 0.99,
+              "max_grad_norm": 10.0,
+              "epsilon_start": 1.0,
+              "epsilon_end": 0.01,
+              "exploration_steps": 1000000,
+              "frame_skip": 4,
+              "noop_max": 30,
+              "sticky_action_probability": 0.25,
+              "fire_on_reset": true,
+              "max_episode_steps": 27000,
+              "eval_every": 50000,
+              "eval_episodes": 5,
+              "eval_seed": 1000000,
+              "checkpoint_every": 25000,
+              "snapshot_every": 100000,
+              "log_every": 1000
+            },
+            "device": "cuda",
+            "runtime": {
+              "dirty": null,
+              "source_sha256": {
+                "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+                "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+                "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+                "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+                "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+                "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+                "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+                "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+                "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+                "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+                "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b"
+              },
+              "dependencies": {
+                "classicsrl": "0.1.0",
+                "torch": "2.14.1+cu130",
+                "numpy": "2.4.6",
+                "gymnasium": "1.4.0",
+                "ale-py": "0.12.1",
+                "opencv-python-headless": "4.14.0.94"
+              },
+              "python": "3.13.16",
+              "device": "cuda"
+            },
+            "resume_snapshot": null,
+            "agent_steps": 0,
+            "reset_seed": 0
+          },
+          {
+            "schema_version": 1,
+            "segment_id": "0232ac2d13d6494d97b4693e825a5788",
+            "event": "start",
+            "config": {
+              "env_id": "ALE/Pong-v5",
+              "seed": 0,
+              "device": "cuda",
+              "torch_threads": 4,
+              "total_steps": 1800000,
+              "replay_capacity": 100000,
+              "batch_size": 32,
+              "learning_starts": 80000,
+              "train_every": 4,
+              "target_update_every": 1000,
+              "learning_rate": 0.0001,
+              "gamma": 0.99,
+              "max_grad_norm": 10.0,
+              "epsilon_start": 1.0,
+              "epsilon_end": 0.01,
+              "exploration_steps": 1000000,
+              "frame_skip": 4,
+              "noop_max": 30,
+              "sticky_action_probability": 0.25,
+              "fire_on_reset": true,
+              "max_episode_steps": 27000,
+              "eval_every": 50000,
+              "eval_episodes": 5,
+              "eval_seed": 1000000,
+              "checkpoint_every": 25000,
+              "snapshot_every": 100000,
+              "log_every": 1000
+            },
+            "device": "cuda",
+            "runtime": {
+              "dirty": null,
+              "source_sha256": {
+                "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+                "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+                "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+                "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+                "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+                "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80",
+                "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+                "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+                "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+                "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+                "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b"
+              },
+              "dependencies": {
+                "classicsrl": "0.1.0",
+                "torch": "2.14.1+cu130",
+                "numpy": "2.4.6",
+                "gymnasium": "1.4.0",
+                "ale-py": "0.12.1",
+                "opencv-python-headless": "4.14.0.94"
+              },
+              "python": "3.13.16",
+              "device": "cuda"
+            },
+            "resume_snapshot": "step-000001000000-e11f5f7f",
+            "agent_steps": 1000000,
+            "reset_seed": 786
+          },
+          {
+            "schema_version": 1,
+            "segment_id": "6d780c198d5e40879be1392475149368",
+            "event": "start",
+            "config": {
+              "env_id": "ALE/Pong-v5",
+              "seed": 0,
+              "device": "cuda",
+              "torch_threads": 4,
+              "total_steps": 2000000,
+              "replay_capacity": 100000,
+              "batch_size": 32,
+              "learning_starts": 80000,
+              "train_every": 4,
+              "target_update_every": 1000,
+              "learning_rate": 0.0001,
+              "gamma": 0.99,
+              "max_grad_norm": 10.0,
+              "epsilon_start": 1.0,
+              "epsilon_end": 0.01,
+              "exploration_steps": 1000000,
+              "frame_skip": 4,
+              "noop_max": 30,
+              "sticky_action_probability": 0.25,
+              "fire_on_reset": true,
+              "max_episode_steps": 27000,
+              "eval_every": 50000,
+              "eval_episodes": 5,
+              "eval_seed": 1000000,
+              "checkpoint_every": 25000,
+              "snapshot_every": 100000,
+              "log_every": 1000
+            },
+            "device": "cuda",
+            "runtime": {
+              "dirty": null,
+              "source_sha256": {
+                "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+                "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+                "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+                "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+                "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+                "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+                "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+                "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+                "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+                "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+                "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80"
+              },
+              "dependencies": {
+                "classicsrl": "0.1.0",
+                "torch": "2.14.1+cu130",
+                "numpy": "2.4.6",
+                "gymnasium": "1.4.0",
+                "ale-py": "0.12.1",
+                "opencv-python-headless": "4.14.0.94"
+              },
+              "python": "3.13.16",
+              "device": "cuda"
+            },
+            "resume_snapshot": "step-000001200000-d5dd3f5d",
+            "agent_steps": 1200000,
+            "reset_seed": 869
+          }
+        ],
+        "comparison_limits": [],
+        "checkpoint": "runs/8b6419b4ee2340e4a8f6b85b99920f16/checkpoints/step-000001300000-6d780c19.pt",
+        "checkpoint_sha256": "91adffbdd813911d1a491e34fac65fb44bd9f66a2fc3e914455cae8206ffe561",
+        "selected_steps": 1300000,
+        "selected_updates": 305001,
+        "validation_mean": -7.6
+      },
+      "full_game_wins": 6
+    },
+    {
+      "schema_version": 1,
+      "evaluation_id": "d1e4c68d715542e3b4eab1bcb045e883",
+      "policy": "greedy",
+      "episodes": [
+        {
+          "seed": 7000000,
+          "return": 12.0,
+          "length": 2290,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000001,
+          "return": -4.0,
+          "length": 3020,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000002,
+          "return": 9.0,
+          "length": 2453,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000003,
+          "return": -10.0,
+          "length": 2298,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000004,
+          "return": -1.0,
+          "length": 2937,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000005,
+          "return": -17.0,
+          "length": 2029,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000006,
+          "return": 11.0,
+          "length": 2235,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000007,
+          "return": 9.0,
+          "length": 2453,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000008,
+          "return": 4.0,
+          "length": 2928,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000009,
+          "return": -10.0,
+          "length": 2458,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000010,
+          "return": 7.0,
+          "length": 2706,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000011,
+          "return": 6.0,
+          "length": 2750,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000012,
+          "return": -13.0,
+          "length": 2136,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000013,
+          "return": 14.0,
+          "length": 2100,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000014,
+          "return": -10.0,
+          "length": 2357,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000015,
+          "return": 7.0,
+          "length": 2583,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000016,
+          "return": -9.0,
+          "length": 2314,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000017,
+          "return": -2.0,
+          "length": 3028,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000018,
+          "return": -2.0,
+          "length": 3234,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000019,
+          "return": -6.0,
+          "length": 2561,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000020,
+          "return": -16.0,
+          "length": 1973,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000021,
+          "return": 2.0,
+          "length": 2784,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000022,
+          "return": 9.0,
+          "length": 2472,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000023,
+          "return": -14.0,
+          "length": 1941,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000024,
+          "return": 6.0,
+          "length": 2648,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000025,
+          "return": 7.0,
+          "length": 2645,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000026,
+          "return": 6.0,
+          "length": 2725,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000027,
+          "return": -19.0,
+          "length": 1758,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000028,
+          "return": 7.0,
+          "length": 2556,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000029,
+          "return": 2.0,
+          "length": 3256,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000030,
+          "return": 5.0,
+          "length": 2753,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000031,
+          "return": -19.0,
+          "length": 1788,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000032,
+          "return": -10.0,
+          "length": 2265,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000033,
+          "return": 6.0,
+          "length": 2499,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000034,
+          "return": 2.0,
+          "length": 2871,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000035,
+          "return": -4.0,
+          "length": 2968,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000036,
+          "return": -9.0,
+          "length": 2520,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000037,
+          "return": 10.0,
+          "length": 2427,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000038,
+          "return": -11.0,
+          "length": 2296,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000039,
+          "return": 7.0,
+          "length": 2488,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000040,
+          "return": -1.0,
+          "length": 3054,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000041,
+          "return": -1.0,
+          "length": 2934,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000042,
+          "return": -15.0,
+          "length": 2210,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000043,
+          "return": -4.0,
+          "length": 3036,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000044,
+          "return": -10.0,
+          "length": 2401,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000045,
+          "return": 8.0,
+          "length": 2446,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000046,
+          "return": -10.0,
+          "length": 2519,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000047,
+          "return": -13.0,
+          "length": 2153,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000048,
+          "return": -2.0,
+          "length": 3224,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        },
+        {
+          "seed": 7000049,
+          "return": -11.0,
+          "length": 2453,
+          "terminated": true,
+          "truncated": false,
+          "video": null
+        }
+      ],
+      "mean_return": -1.94,
+      "environment": {
+        "env_id": "ALE/Pong-v5",
+        "ale_frameskip": 1,
+        "sticky_action_probability": 0.25,
+        "full_action_space": false,
+        "source_observation": "rgb",
+        "wrappers": [
+          {
+            "name": "FrameCounter"
+          },
+          {
+            "name": "AtariPreprocessing",
+            "noop_max": 30,
+            "frame_skip": 4,
+            "screen_size": 84,
+            "max_pool_last_frames": 2,
+            "terminal_on_life_loss": false,
+            "grayscale_obs": true,
+            "scale_obs": false
+          },
+          {
+            "name": "FireOnReset",
+            "startup_actions": [
+              "FIRE"
+            ]
+          },
+          {
+            "name": "FrameStackObservation",
+            "stack_size": 4,
+            "padding_type": "reset"
+          },
+          {
+            "name": "TimeLimit",
+            "max_episode_steps": 27000
+          }
+        ]
+      },
+      "action_names": [
+        "NOOP",
+        "FIRE",
+        "RIGHT",
+        "LEFT",
+        "RIGHTFIRE",
+        "LEFTFIRE"
+      ],
+      "evaluation_role": "posthoc_heldout",
+      "selection": {
+        "source_run": "runs/65eaabef0a6c44b3b95992d8db2cb26e",
+        "run_id": "65eaabef0a6c44b3b95992d8db2cb26e",
+        "implementation": "stable_baselines3.DQN",
+        "declared_training_budget": 2000000,
+        "source_max_validation_step": 1300000,
+        "source_training_segments": [
+          {
+            "event": "start",
+            "segment_id": "ba95b5ff54bc45848e491156fba1d5e5",
+            "agent_steps": 0,
+            "device": "cuda",
+            "config": {
+              "env_id": "ALE/Pong-v5",
+              "seed": 0,
+              "device": "cuda",
+              "torch_threads": 4,
+              "total_steps": 2000000,
+              "replay_capacity": 100000,
+              "batch_size": 32,
+              "learning_starts": 80000,
+              "train_every": 4,
+              "target_update_every": 1000,
+              "learning_rate": 0.0001,
+              "gamma": 0.99,
+              "max_grad_norm": 10.0,
+              "epsilon_start": 1.0,
+              "epsilon_end": 0.01,
+              "exploration_steps": 1000000,
+              "frame_skip": 4,
+              "noop_max": 30,
+              "sticky_action_probability": 0.25,
+              "fire_on_reset": true,
+              "max_episode_steps": 27000,
+              "eval_every": 50000,
+              "eval_episodes": 5,
+              "eval_seed": 1000000,
+              "checkpoint_every": 25000,
+              "snapshot_every": 100000,
+              "log_every": 1000
+            },
+            "implementation": "stable_baselines3.DQN",
+            "runtime": {
+              "dirty": null,
+              "source_sha256": {
+                "dqn.py": "4c0e35e51a3480ff04fd2c2def9fd71556910c4334e46131c70564093ece383b",
+                "config.py": "de69efd07d6635ca44d2e9f5ffa5d727afc7ff601ed7421c4441afd6c1655152",
+                "replay.py": "1ff8065b4475f1bbeee7af72e5e9a63d6cc56ebba11052bf411685114f7e7599",
+                "cli.py": "0d881680cfa26aaa74082da21210ad6eb6ae364802ff3941ed6b38e8731c2b7b",
+                "envs.py": "d6a726efd0b6c04abaad70700d139dd9f1891549149be6b78af88f9633bbeeef",
+                "training.py": "782a1a8caf64b17788f8e8a5b9bdd966d9be93a9e0e95a6cc7d5d7a522a3e570",
+                "dashboard.py": "748f179cd5257f17c839e633586d77184ec21b1e422f3b2bdf6772cb57bc55b9",
+                "evaluation.py": "8889687d045ebf538821918439a812efed5f6ce5d990bf364878d2c34ebee3c8",
+                "diagnostics.py": "4d6fc8622e3883c88c510a49beb8c3f72fe1e8cb3dad05b9f6da1a556ee2f1a1",
+                "artifacts.py": "3efdedd603ac719fafd8b89e62631a2f01559921d527090ff30907333c07b45f",
+                "__init__.py": "17a69d1eb303d214982eefabc8025ead5f21502438a2217b012253614c8b7a80"
+              },
+              "dependencies": {
+                "classicsrl": "0.1.0",
+                "torch": "2.14.1+cu130",
+                "numpy": "2.4.6",
+                "gymnasium": "1.4.0",
+                "ale-py": "0.12.1",
+                "opencv-python-headless": "4.14.0.94"
+              },
+              "python": "3.13.16",
+              "device": "cuda",
+              "reference_version": "2.9.2",
+              "harness_sha256": "7c56f94e6ba455ea32ed154e2773664da272119a7c419e978b225ea924bbbcb5"
+            },
+            "comparison_limits": [
+              "Shares ClassicsRL wrappers and evaluator; these require separate validation.",
+              "SB3 uses uniform random actions during warm-up and its native reset and RNG behavior.",
+              "SB3 synchronizes targets before a boundary update; ClassicsRL does so after it.",
+              "Warm-up threshold is adjusted by one step to match the first optimizer update.",
+              "Playback weights persist periodically; these are not full recovery snapshots."
+            ]
+          }
+        ],
+        "comparison_limits": [
+          "Shares ClassicsRL wrappers and evaluator; these require separate validation.",
+          "SB3 uses uniform random actions during warm-up and its native reset and RNG behavior.",
+          "SB3 synchronizes targets before a boundary update; ClassicsRL does so after it.",
+          "Warm-up threshold is adjusted by one step to match the first optimizer update.",
+          "Playback weights persist periodically; these are not full recovery snapshots."
+        ],
+        "checkpoint": "runs/65eaabef0a6c44b3b95992d8db2cb26e/checkpoints/step-000001200000-ba95b5ff.pt",
+        "checkpoint_sha256": "2e8060e79ce91130012c8173650698d98af33835d27052bfd24071555f0ae57a",
+        "selected_steps": 1200000,
+        "selected_updates": 280001,
+        "validation_mean": -0.4
+      },
+      "full_game_wins": 22
+    }
+  ],
+  "random_baseline": {
+    "schema_version": 1,
+    "evaluation_id": "35b30bf135d54fbd9e315ad8a21107a3",
+    "policy": "random",
+    "episodes": [
+      {
+        "seed": 7000000,
+        "return": -21.0,
+        "length": 939,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000001,
+        "return": -20.0,
+        "length": 1151,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000002,
+        "return": -19.0,
+        "length": 932,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000003,
+        "return": -21.0,
+        "length": 819,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000004,
+        "return": -21.0,
+        "length": 763,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000005,
+        "return": -21.0,
+        "length": 761,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000006,
+        "return": -20.0,
+        "length": 883,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000007,
+        "return": -21.0,
+        "length": 901,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000008,
+        "return": -20.0,
+        "length": 892,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000009,
+        "return": -20.0,
+        "length": 937,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000010,
+        "return": -20.0,
+        "length": 838,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000011,
+        "return": -20.0,
+        "length": 894,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000012,
+        "return": -21.0,
+        "length": 1066,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000013,
+        "return": -19.0,
+        "length": 1063,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000014,
+        "return": -21.0,
+        "length": 911,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000015,
+        "return": -21.0,
+        "length": 763,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000016,
+        "return": -21.0,
+        "length": 998,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000017,
+        "return": -20.0,
+        "length": 834,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000018,
+        "return": -20.0,
+        "length": 1076,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000019,
+        "return": -19.0,
+        "length": 1082,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000020,
+        "return": -20.0,
+        "length": 841,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000021,
+        "return": -21.0,
+        "length": 870,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000022,
+        "return": -21.0,
+        "length": 879,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000023,
+        "return": -21.0,
+        "length": 896,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000024,
+        "return": -21.0,
+        "length": 824,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000025,
+        "return": -21.0,
+        "length": 1017,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000026,
+        "return": -20.0,
+        "length": 967,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000027,
+        "return": -21.0,
+        "length": 934,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000028,
+        "return": -20.0,
+        "length": 990,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000029,
+        "return": -20.0,
+        "length": 894,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000030,
+        "return": -21.0,
+        "length": 820,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000031,
+        "return": -21.0,
+        "length": 762,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000032,
+        "return": -21.0,
+        "length": 988,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000033,
+        "return": -21.0,
+        "length": 925,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000034,
+        "return": -21.0,
+        "length": 818,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000035,
+        "return": -21.0,
+        "length": 822,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000036,
+        "return": -20.0,
+        "length": 946,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000037,
+        "return": -21.0,
+        "length": 849,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000038,
+        "return": -19.0,
+        "length": 984,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000039,
+        "return": -20.0,
+        "length": 990,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000040,
+        "return": -21.0,
+        "length": 934,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000041,
+        "return": -20.0,
+        "length": 990,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000042,
+        "return": -20.0,
+        "length": 859,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000043,
+        "return": -21.0,
+        "length": 942,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000044,
+        "return": -21.0,
+        "length": 761,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000045,
+        "return": -21.0,
+        "length": 790,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000046,
+        "return": -21.0,
+        "length": 776,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000047,
+        "return": -21.0,
+        "length": 907,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000048,
+        "return": -20.0,
+        "length": 841,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      },
+      {
+        "seed": 7000049,
+        "return": -21.0,
+        "length": 935,
+        "terminated": true,
+        "truncated": false,
+        "video": null
+      }
+    ],
+    "mean_return": -20.5,
+    "environment": {
+      "env_id": "ALE/Pong-v5",
+      "ale_frameskip": 1,
+      "sticky_action_probability": 0.25,
+      "full_action_space": false,
+      "source_observation": "rgb",
+      "wrappers": [
+        {
+          "name": "FrameCounter"
+        },
+        {
+          "name": "AtariPreprocessing",
+          "noop_max": 30,
+          "frame_skip": 4,
+          "screen_size": 84,
+          "max_pool_last_frames": 2,
+          "terminal_on_life_loss": false,
+          "grayscale_obs": true,
+          "scale_obs": false
+        },
+        {
+          "name": "FireOnReset",
+          "startup_actions": [
+            "FIRE"
+          ]
+        },
+        {
+          "name": "FrameStackObservation",
+          "stack_size": 4,
+          "padding_type": "reset"
+        },
+        {
+          "name": "TimeLimit",
+          "max_episode_steps": 27000
+        }
+      ]
+    },
+    "action_names": [
+      "NOOP",
+      "FIRE",
+      "RIGHT",
+      "LEFT",
+      "RIGHTFIRE",
+      "LEFTFIRE"
+    ],
+    "evaluation_role": "posthoc_heldout",
+    "full_game_wins": 0
+  }
+}
