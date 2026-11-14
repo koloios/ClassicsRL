@@ -180,7 +180,12 @@ The next trial is fixed before training: ClassicsRL DQN and SB3 2.9.2 each recei
 2,000,000 agent steps with training seed 2 on the same Colab CUDA runtime. Both use
 `configs/pong-reference-inspired.toml`, overriding the total budget and validation
 seed only (plus the declared training seed/device). Training source is commit
-`12c1a9dbd44cc2fa9811cca46ce7f6d90e91f65f`.
+`59e5b2f669cc885ec38d5572b02ad67a2e537b3a`. The original source pin was amended
+before either long run: CUDA preflight found that SB3 loading moved Adam's scalar
+step counters to the GPU. The corrected loader preserves their native CPU
+placement, with a CUDA regression checking the identical next optimizer update.
+The persisted trial plan retains the pretraining amendment. SB3 runs first, then
+ClassicsRL, in separate processes on the same runtime.
 
 Validation uses five full games, seeds 12,000,000–12,000,004, every 50,000 steps.
 Both selections are locked before any final test: highest validation mean within
@@ -195,3 +200,12 @@ cost, persistence, and recovery. Active training uses runtime-local storage;
 verified snapshots are copied to Drive. No intentional training interruptions are
 planned. Any recovery boundaries, lost work, dependency changes, or runtime changes
 must be recorded and disclosed with the results.
+
+Once both declared budgets finish, the comparison command verifies completion
+and locks both validation selections before testing either policy:
+
+```sh
+uv run --extra atari python scripts/compare_prefix.py runs/classicsrl runs/sb3 \
+  --require-complete --budget 2000000 --episodes 50 --seed 13000000 \
+  --device cuda --output runs/matched-pair-comparison
+```
