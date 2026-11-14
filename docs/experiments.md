@@ -186,6 +186,8 @@ step counters to the GPU. The corrected loader preserves their native CPU
 placement, with a CUDA regression checking the identical next optimizer update.
 The persisted trial plan retains the pretraining amendment. SB3 runs first, then
 ClassicsRL, in separate processes on the same runtime.
+Both use `cudnn.deterministic=True` and `cudnn.benchmark=False`; the ClassicsRL
+entry-point wrapper sets these explicitly to match SB3's native CUDA setup.
 
 Validation uses five full games, seeds 12,000,000–12,000,004, every 50,000 steps.
 Both selections are locked before any final test: highest validation mean within
