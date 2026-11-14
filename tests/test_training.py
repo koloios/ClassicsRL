@@ -182,3 +182,36 @@ def test_diagnostic_logging_tolerates_empty_replay_after_reset(tmp_path, pixel_e
     ]
     probes = [row for row in rows if row["metric"] == "train/features/conv3_active_fraction"]
     assert {row["agent_steps"] for row in probes} == {1, 2, 3, 5, 6, 7}
+
+
+@pytest.mark.parametrize("backend", ["cuda", "mps"])
+def test_resume_restores_accelerator_rng_with_an_implicit_device(
+    tmp_path, pixel_env_factory, backend
+):
+    accelerator = torch.cuda if backend == "cuda" else torch.mps
+    available = (
+        torch.cuda.is_available() if backend == "cuda" else torch.backends.mps.is_available()
+    )
+    if not available:
+        pytest.skip(f"requires {backend}")
+    config = replace(small_config(), device=backend)
+    result = train(config, tmp_path / "run", env_factory=pixel_env_factory)
+    data = torch.load(result["snapshot"] / "training.pt", map_location="cpu", weights_only=True)
+    expected = data["cuda_rng"] if backend == "cuda" else [data["mps_rng"]]
+    torch.rand(19, device=backend)
+    accelerator.synchronize()
+
+    def states():
+        return (
+            accelerator.get_rng_state_all() if backend == "cuda" else [accelerator.get_rng_state()]
+        )
+
+    assert any(not torch.equal(a, b) for a, b in zip(states(), expected, strict=True))
+    device = torch.device(backend)
+    network = QNetwork(2).to(device)
+    target = copy.deepcopy(network)
+    optimizer = torch.optim.Adam(network.parameters(), lr=config.learning_rate)
+    restore_snapshot(
+        result["snapshot"], network, target, optimizer, device, np.random.default_rng()
+    )
+    assert all(torch.equal(a, b) for a, b in zip(states(), expected, strict=True))

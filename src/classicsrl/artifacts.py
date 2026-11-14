@@ -246,7 +246,8 @@ def restore_snapshot(path, network, target, optimizer, device, action_rng):
     numpy = rng["numpy"]
     np.random.set_state((numpy[0], np.array(numpy[1], dtype=np.uint32), *numpy[2:]))
     action_rng.bit_generator.state = rng["actions"]
-    if state["device"] == str(device):
+    # Tensor devices include an index; CLI aliases such as "cuda" and "mps" do not.
+    if state["device"] == str(next(network.parameters()).device):
         if device.type == "cuda" and "cuda_rng" in data:
             torch.cuda.set_rng_state_all([value.cpu() for value in data["cuda_rng"]])
         if device.type == "mps" and "mps_rng" in data:
