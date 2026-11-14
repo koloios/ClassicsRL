@@ -261,3 +261,64 @@ def test_interrupted_update_keeps_previous_coherent_snapshot(
     assert not list((run / "reference-snapshots").glob("step-000000000018-*"))
     last = json.loads((run / "segments.jsonl").read_text().splitlines()[-1])
     assert last["interrupted"] and last["resume_snapshot"] == result["snapshot"].name
+
+
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="requires CUDA")
+def test_cuda_resume_preserves_native_adam_placement_and_next_update(
+    reference, config, tmp_path, pixel_env_factory, monkeypatch
+):
+    config = replace(config, device="cuda")
+    captured = []
+
+    class Pause(reference.RecordControl):
+        def _on_rollout_start(self):
+            super()._on_rollout_start()
+            if self.num_timesteps == 16:
+                captured.append(self.model)
+                raise KeyboardInterrupt
+
+    monkeypatch.setattr(reference, "RecordControl", Pause)
+    run = tmp_path / "run"
+    result = reference.train_control(config, run, env_factory=pixel_env_factory)
+    original = captured[0]
+    metadata = json.loads((run / "run.json").read_text())
+    expected_rng = [state.clone() for state in torch.cuda.get_rng_state_all()]
+    env = pixel_env_factory(config)
+    restored, _ = reference.restore_reference_snapshot(
+        result["snapshot"], config, metadata, env, "cuda"
+    )
+    try:
+        assert all(
+            torch.equal(a, b)
+            for a, b in zip(
+                expected_rng,
+                torch.cuda.get_rng_state_all(),
+                strict=True,
+            )
+        )
+        for model in (original, restored):
+            assert all(
+                s["step"].device.type == "cpu" for s in model.policy.optimizer.state.values()
+            )
+        torch.testing.assert_close(
+            restored.policy.optimizer.state_dict(),
+            original.policy.optimizer.state_dict(),
+            rtol=0,
+            atol=0,
+        )
+        numpy_rng = np.random.get_state()
+        restored.set_logger(configure(format_strings=[]))
+        original.train(gradient_steps=1, batch_size=config.batch_size)
+        np.random.set_state(numpy_rng)
+        restored.train(gradient_steps=1, batch_size=config.batch_size)
+        torch.testing.assert_close(
+            restored.policy.state_dict(), original.policy.state_dict(), rtol=0, atol=0
+        )
+        torch.testing.assert_close(
+            restored.policy.optimizer.state_dict(),
+            original.policy.optimizer.state_dict(),
+            rtol=0,
+            atol=0,
+        )
+    finally:
+        env.close()

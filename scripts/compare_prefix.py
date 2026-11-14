@@ -1,7 +1,7 @@
-"""Evaluate saved policies at a common available budget after a run interruption.
+"""Evaluate saved policies at a common budget, locking selections before tests.
 
 This does not mark an incomplete training run complete or resume it without replay.
-Both checkpoint selections are locked before any new test games are inspected.
+Use --require-complete for a prospective comparison of completed training runs.
 """
 
 import argparse
@@ -25,6 +25,7 @@ def main():
     parser.add_argument("--episodes", default=50, type=int)
     parser.add_argument("--seed", default=7_000_000, type=int)
     parser.add_argument("--device", default="auto")
+    parser.add_argument("--require-complete", action="store_true")
     args = parser.parse_args()
     if len(args.runs) < 2 or args.budget <= 0 or args.episodes <= 0 or args.seed < 0:
         parser.error(
@@ -52,10 +53,18 @@ def main():
         if (
             saved["run_id"] != metadata["run_id"]
             or protocol(Config(**saved["config"])) != environment
+            or saved["counters"]["step"] != selected["agent_steps"]
         ):
             raise ValueError("checkpoint does not match its source run and game protocol")
         segments = [json.loads(s) for s in (run / "segments.jsonl").read_text().splitlines()]
         starts = [row for row in segments if row["event"] == "start"]
+        if args.require_complete and (
+            starts[-1]["config"]["total_steps"] != args.budget
+            or segments[-1]["event"] != "stop"
+            or segments[-1].get("interrupted")
+            or segments[-1]["agent_steps"] != args.budget
+        ):
+            raise ValueError(f"Run has not completed the declared comparison budget: {run}")
         selections.append(
             {
                 "source_run": str(run),
@@ -76,9 +85,22 @@ def main():
         raise ValueError("provide distinct source runs")
     device = resolve_device(args.device)
     args.output.mkdir(parents=True, exist_ok=False)
+    limitations = [
+        "One training seed and differing recovery/RNG behavior do not establish superiority.",
+        "The evaluator and game wrappers are shared between implementations.",
+    ]
+    if not args.require_complete:
+        limitations = [
+            "The common budget was chosen after an external interruption, before these tests.",
+            "This does not complete either source run's larger declared training budget.",
+        ] + limitations
     report = {
         "schema_version": 1,
-        "kind": "posthoc_common_budget_after_interruption",
+        "kind": (
+            "prospective_completed_runs"
+            if args.require_complete
+            else "posthoc_common_budget_after_interruption"
+        ),
         "common_available_budget": args.budget,
         "selection_rule": "highest validation mean within the common budget; ties prefer latest",
         "test_seeds": list(range(args.seed, args.seed + args.episodes)),
@@ -86,11 +108,7 @@ def main():
         "selections": selections,
         "harness_sha256": digest(Path(__file__)),
         "runtime": runtime_metadata(device),
-        "limitations": [
-            "The common budget was chosen after an external interruption, before these tests.",
-            "This is not completion of either source run's larger declared training budget.",
-            "One training seed and differing recovery/RNG behavior do not establish superiority.",
-        ],
+        "limitations": limitations,
     }
     write_json(args.output / "selection.json", report)
     print("LOCKED", [(r["implementation"], r["selected_steps"]) for r in selections], flush=True)
@@ -103,7 +121,7 @@ def main():
         network.load_state_dict(saved["online"])
         result = evaluate(network, config, device, report["test_seeds"])
         result.update(
-            evaluation_role="posthoc_heldout",
+            evaluation_role="heldout" if args.require_complete else "posthoc_heldout",
             selection=selection,
             full_game_wins=sum(r["terminated"] and r["return"] > 0 for r in result["episodes"]),
         )
@@ -113,7 +131,7 @@ def main():
             selection["implementation"], result["mean_return"], result["full_game_wins"], flush=True
         )
     baseline = evaluate(network, config, device, report["test_seeds"], policy="random")
-    baseline["evaluation_role"] = "posthoc_heldout"
+    baseline["evaluation_role"] = "heldout" if args.require_complete else "posthoc_heldout"
     baseline["full_game_wins"] = sum(
         r["terminated"] and r["return"] > 0 for r in baseline["episodes"]
     )

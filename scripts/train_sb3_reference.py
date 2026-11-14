@@ -133,6 +133,14 @@ def restore_reference_snapshot(path, config, metadata, env, device):
         raise ValueError("the declared training budget is already complete")
     # SB3 model/replay loaders use pickle: load only snapshots from trusted runs.
     model = DQN.load(path / "model.zip", env=env, device=device, force_reset=True)
+    # SB3 maps all saved tensors to the model device. Native non-capturable Adam
+    # keeps step counters on CPU; restore that placement to avoid GPU synchronizations.
+    for group in model.policy.optimizer.param_groups:
+        if not group.get("capturable") and not group.get("fused"):
+            for parameter in group["params"]:
+                optimizer_state = model.policy.optimizer.state[parameter]
+                if "step" in optimizer_state:
+                    optimizer_state["step"] = optimizer_state["step"].cpu()
     with gzip.open(path / "replay.pkl.gz", "rb") as file:
         with io.BufferedReader(file) as buffered:
             model.load_replay_buffer(buffered)
