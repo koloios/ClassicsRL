@@ -173,3 +173,25 @@ Exact training trajectories across versions and devices are not promised.
 
 Unredacted development records are kept privately. Shared reports omit machine
 identifiers; their numerical results are unchanged.
+
+## Prospective matched pair
+
+The next trial is fixed before training: ClassicsRL DQN and SB3 2.9.2 each receive
+2,000,000 agent steps with training seed 2 on the same Colab CUDA runtime. Both use
+`configs/pong-reference-inspired.toml`, overriding the total budget and validation
+seed only (plus the declared training seed/device). Training source is commit
+`12c1a9dbd44cc2fa9811cca46ce7f6d90e91f65f`.
+
+Validation uses five full games, seeds 12,000,000–12,000,004, every 50,000 steps.
+Both selections are locked before any final test: highest validation mean within
+the budget, latest checkpoint on ties. Final tests use seeds 13,000,000–13,000,049
+for both greedy policies and a random-action baseline. Report raw returns, mean,
+wins, and truncations, including weak results. No settings change in response to
+these tests. One training seed is a pipeline/comparison trial, not evidence of
+consistent learning or algorithmic superiority.
+
+Before the long runs, separate smoke artifacts check updates, complete snapshot
+cost, persistence, and recovery. Active training uses runtime-local storage;
+verified snapshots are copied to Drive. No intentional training interruptions are
+planned. Any recovery boundaries, lost work, dependency changes, or runtime changes
+must be recorded and disclosed with the results.
