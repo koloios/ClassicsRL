@@ -37,6 +37,15 @@ episode. Each segment's actual settings and source are retained in the reports:
 These are five-game validation means, not the final test means. Dashed segments
 follow recovery. Separate demonstrations do not contribute to the test results.
 
+Post-run inspection found no all-zero Conv3 collapse on either run's saved replay
+probe: the minimum active fractions across stored policies were 0.082 and 0.092.
+The probes differ between runs, so their activation magnitudes are not a controlled
+backend comparison. The MPS validation score fell from -2.4 at 1.65M to -9.0 at
+1.7M before that recovery, and later from +2.0 at 1.9M to -5.6 at 2M without another
+recovery. These observations do not isolate a cause; seed-matched trials with
+controlled recovery are needed before attributing the gap to the backend or a
+specific hyperparameter.
+
 ## Common-budget SB3 control
 
 The optional reference runner uses Stable-Baselines3 2.9.2's native collector,
@@ -47,7 +56,7 @@ after it. The evaluator and wrappers are shared, so this is not an independent
 validation of the environment.
 
 The reference runtime ended with policies and validations persisted through 1.3M
-steps. Its runner saves playback policies, not replay/optimizer recovery state;
+steps. The runner used then saved playback policies, not replay/optimizer state;
 the original 2M control could not be completed from those files. A post-hoc common
 budget of 1.3M was chosen before new tests. Both selections were locked using only
 validation within that prefix, then tested on seeds 7,000,000–7,000,049.
@@ -119,7 +128,29 @@ uv run --extra atari --with stable-baselines3==2.9.2 \
   --run runs/sb3-seed-0 --seed 0 --steps 2000000 --device cuda
 ```
 
-Verify recovery support before depending on that runner for interruptible sessions.
+The current runner also saves verified native SB3 recovery snapshots under
+`reference-snapshots/`. They include both networks, Adam state, replay, counters,
+and Python/NumPy/Torch/action-space RNG states. Snapshots are taken after a complete
+rollout and update; an interruption during an update falls back to the previous
+snapshot. They cannot recover the original control's missing state.
+
+To resume, copy the complete persisted run to runtime-local storage, then use:
+
+```sh
+uv run --extra atari --with stable-baselines3==2.9.2 \
+  python scripts/train_sb3_reference.py \
+  --resume runs/sb3-seed-0/reference-snapshots/<snapshot> --device cuda
+```
+
+The original training budget and learning settings stay fixed on resume so the
+exploration schedule does not change. Recovery starts a fresh emulator episode;
+it does not reproduce an uninterrupted trajectory. Load only trusted snapshots:
+SB3 model and replay loading uses pickle. `--persist-dir` copies verified snapshots
+to a dedicated run-ID directory, excluding unfinished temporary copies. Replay is
+gzip-compressed, but SB3's stacked replay still needs substantial RAM and storage;
+measure snapshot/copy time before starting a long session. Snapshot, evaluation,
+and persistence time is excluded from reported training time.
+
 Use `classicsrl diagnose --help` for fixed-replay feature and device checks, and
 `scripts/collect_stability.py --public` to collect shareable reports from complete
 local runs against a shared probe.

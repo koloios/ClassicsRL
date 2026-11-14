@@ -23,6 +23,15 @@ These checks need no ROMs, GPU, network services, or optional Atari installation
 CI runs them on Python 3.11 and 3.12. Tests use deterministic image fixtures;
 long training experiments are separate from ordinary tests.
 
+Optional SB3 recovery checks use the real pinned library with image fixtures:
+
+```sh
+uv run --no-sync --with stable-baselines3==2.9.2 \
+  python -m pytest -q tests/test_sb3_reference.py
+```
+
+CI runs these separately on Python 3.12; SB3 remains an optional development tool.
+
 For optional integration tests, first review [game content](docs/game-content.md),
 then install the Atari extra and run:
 

@@ -274,7 +274,7 @@ def sync_run(source: Path, destination: Path):
         for file in (source / folder).rglob("*"):
             if file.is_file() and not file.name.endswith(".tmp"):
                 _copy_file(file, destination / file.relative_to(source))
-    for snapshot in (source / "snapshots").iterdir():
+    for snapshot in (source / "snapshots").glob("*"):
         if snapshot.name.startswith("."):
             continue
         output = destination / "snapshots" / snapshot.name
