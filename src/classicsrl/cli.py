@@ -13,7 +13,7 @@ from classicsrl.config import Config, load_config
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="classicsrl")
     commands = parser.add_subparsers(dest="command", required=True)
-    train_parser = commands.add_parser("train", help="train or resume vanilla DQN")
+    train_parser = commands.add_parser("train", help="train or resume DQN or Double DQN")
     train_parser.add_argument("--config", type=Path)
     train_parser.add_argument("--run", type=Path)
     train_parser.add_argument("--resume", type=Path, help="complete training snapshot directory")
@@ -23,6 +23,12 @@ def main(argv=None):
     train_parser.add_argument("--device", choices=("auto", "cpu", "mps", "cuda"))
     train_parser.add_argument("--seed", type=int, help="independent training seed")
     train_parser.add_argument("--learning-rate", type=float)
+    train_parser.add_argument(
+        "--double-dqn",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="select next actions online and evaluate them with the target network",
+    )
     train_parser.add_argument(
         "--persist-dir", type=Path, help="periodic verified copies outside the run"
     )
@@ -70,6 +76,8 @@ def main(argv=None):
                 changes["seed"] = args.seed
             if args.learning_rate is not None:
                 changes["learning_rate"] = args.learning_rate
+            if args.double_dqn is not None:
+                changes["double_dqn"] = args.double_dqn
             config = replace(config, **changes)
             if args.run is None:
                 args.run = (

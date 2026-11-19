@@ -1,4 +1,4 @@
-"""The network, epsilon-greedy policy, and one vanilla DQN update."""
+"""The network, epsilon-greedy policy, and a DQN or Double DQN update."""
 
 import numpy as np
 import torch
@@ -65,14 +65,20 @@ def td_targets(rewards, terminated, next_values, gamma):
     return rewards + gamma * next_values * (~terminated).float()
 
 
-def update(network, target, optimizer, batch: Batch, device, gamma, max_grad_norm):
+def update(
+    network, target, optimizer, batch: Batch, device, gamma, max_grad_norm, *, double_dqn=False
+):
     observations = torch.as_tensor(batch.observations, device=device)
     next_observations = torch.as_tensor(batch.next_observations, device=device)
     actions = torch.as_tensor(batch.actions, device=device)
     rewards = torch.as_tensor(batch.rewards, device=device)
     terminated = torch.as_tensor(batch.terminated, device=device)
     with torch.no_grad():
-        next_values = target(next_observations).max(dim=1).values
+        if double_dqn:
+            next_actions = network(next_observations).argmax(dim=1, keepdim=True)
+            next_values = target(next_observations).gather(1, next_actions).squeeze(1)
+        else:
+            next_values = target(next_observations).max(dim=1).values
         targets = td_targets(rewards, terminated, next_values, gamma)
     values = network(observations).gather(1, actions[:, None]).squeeze(1)
     loss = F.smooth_l1_loss(values, targets)

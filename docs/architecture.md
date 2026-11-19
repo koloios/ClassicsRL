@@ -21,6 +21,12 @@ DQN uses uniform replay, one-step targets, Smooth L1 loss, Adam, gradient clippi
 and hard target updates. True terminations remove bootstrapping; time-limit
 truncations use the actual final observation.
 
+`double_dqn = true` (or `--double-dqn`) enables Double DQN: the online network
+chooses the next action and the target network evaluates it. The default remains
+vanilla DQN, including for older artifacts without this setting. Recovery rejects
+switching algorithms. The optional SB3 runner and arithmetic audit accept only
+vanilla DQN.
+
 ALE frame skip is one. The preprocessing wrapper applies action repetition and
 max-pooling; defaults use four repeated frames, sticky-action probability 0.25,
 startup no-ops, FIRE on reset, and a 27,000-agent-step episode cap. The ordered

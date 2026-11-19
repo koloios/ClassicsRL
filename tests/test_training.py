@@ -7,6 +7,7 @@ import pytest
 import torch
 
 from classicsrl.artifacts import (
+    digest,
     load_checkpoint,
     restore_snapshot,
     sync_run,
@@ -36,14 +37,29 @@ def small_config():
     )
 
 
-def test_training_checkpoint_snapshot_and_resume_round_trip(tmp_path, pixel_env_factory):
+@pytest.mark.parametrize("double_dqn", [False, True])
+def test_training_checkpoint_snapshot_and_resume_round_trip(
+    tmp_path, pixel_env_factory, monkeypatch, double_dqn
+):
+    from classicsrl import training
+
+    observed, original_update = [], training.update
+
+    def record_update(*args, **kwargs):
+        observed.append(kwargs.get("double_dqn", False))
+        return original_update(*args, **kwargs)
+
+    monkeypatch.setattr(training, "update", record_update)
     run = tmp_path / "run"
-    config = small_config()
+    config = replace(small_config(), double_dqn=double_dqn)
     first = train(config, run, env_factory=pixel_env_factory)
     assert first["counters"]["updates"] == 5
     assert first["counters"]["raw_frames"] == 48
     assert first["counters"]["episodes"] == 4
     saved = load_checkpoint(first["checkpoint"], "cpu")
+    assert saved["config"]["double_dqn"] is double_dqn
+    meta = json.loads((run / "run.json").read_text())
+    assert meta["implementation"] == ("classicsrl.DoubleDQN" if double_dqn else "classicsrl.DQN")
     network = QNetwork(2)
     target = copy.deepcopy(network)
     optimizer = torch.optim.Adam(network.parameters(), lr=config.learning_rate)
@@ -63,6 +79,7 @@ def test_training_checkpoint_snapshot_and_resume_round_trip(tmp_path, pixel_env_
     assert resumed["run_id"] == first["run_id"]
     assert resumed["counters"]["step"] == 20
     assert resumed["counters"]["updates"] == 9
+    assert observed == [double_dqn] * 9
     assert resumed["counters"]["raw_frames"] == 80
     segments = [json.loads(line) for line in (run / "segments.jsonl").read_text().splitlines()]
     starts = [segment for segment in segments if segment["event"] == "start"]
@@ -103,13 +120,14 @@ def test_bad_snapshots_and_copy_recovery(tmp_path, pixel_env_factory):
         verify_snapshot(copied)
 
 
-def test_resume_rejects_learning_changes_and_foreign_run(tmp_path, pixel_env_factory):
+@pytest.mark.parametrize("change", [{"gamma": 0.5}, {"double_dqn": True}])
+def test_resume_rejects_learning_changes_and_foreign_run(tmp_path, pixel_env_factory, change):
     config = small_config()
     run = tmp_path / "run"
     result = train(config, run, env_factory=pixel_env_factory)
-    with pytest.raises(ValueError, match="gamma"):
+    with pytest.raises(ValueError, match=next(iter(change))):
         train(
-            replace(config, total_steps=20, gamma=0.5),
+            replace(config, total_steps=20, **change),
             run,
             resume=result["snapshot"],
             env_factory=pixel_env_factory,
@@ -126,11 +144,31 @@ def test_resume_rejects_learning_changes_and_foreign_run(tmp_path, pixel_env_fac
         )
 
 
+def test_legacy_snapshot_without_double_dqn_field_resumes_as_vanilla(tmp_path, pixel_env_factory):
+    config = small_config()
+    run = tmp_path / "run"
+    first = train(config, run, env_factory=pixel_env_factory)
+    path = first["snapshot"] / "state.json"
+    state = json.loads(path.read_text())
+    del state["config"]["double_dqn"]
+    path.write_text(json.dumps(state))
+    manifest_path = first["snapshot"] / "manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    manifest["files"]["state.json"] = {"bytes": path.stat().st_size, "sha256": digest(path)}
+    manifest_path.write_text(json.dumps(manifest))
+    result = train(
+        replace(config, total_steps=14),
+        run,
+        resume=first["snapshot"],
+        env_factory=pixel_env_factory,
+    )
+    assert result["counters"]["step"] == 14
+    assert load_checkpoint(result["checkpoint"], "cpu")["config"]["double_dqn"] is False
+
+
 def test_replaying_old_snapshot_preserves_checkpoints_from_both_continuations(
     tmp_path, pixel_env_factory
 ):
-    from classicsrl.artifacts import digest
-
     run = tmp_path / "run"
     config = small_config()
     first = train(config, run, env_factory=pixel_env_factory)

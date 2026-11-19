@@ -17,12 +17,15 @@ def test_known_targets_distinguish_termination_from_truncation():
     torch.testing.assert_close(targets, torch.tensor([3.0, -1.0, 6.0]))
 
 
-def test_update_uses_target_network_without_mutating_it():
+@pytest.mark.parametrize("double_dqn, expected_loss", [(False, 2.0), (True, 2.25)])
+def test_update_selects_and_evaluates_next_actions_without_mutating_target(
+    double_dqn, expected_loss
+):
     network = nn.Sequential(nn.Flatten(), nn.Linear(4, 2))
     target = copy.deepcopy(network)
     with torch.no_grad():
         network[1].weight.zero_()
-        network[1].bias.zero_()
+        network[1].bias.copy_(torch.tensor([7.0, 1.0]))
         target[1].weight.zero_()
         target[1].bias.copy_(torch.tensor([3.0, 4.0]))
     old_target = copy.deepcopy(target.state_dict())
@@ -42,12 +45,14 @@ def test_update_uses_target_network_without_mutating_it():
         torch.device("cpu"),
         gamma=0.5,
         max_grad_norm=10,
+        double_dqn=double_dqn,
     )
-    # Targets are [3, 2]. Smooth L1 losses from zero predictions are [2.5, 1.5].
-    assert result["td_loss"] == pytest.approx(2.0)
+    # Online prefers action 0; target prefers 1. The truncated row still bootstraps.
+    # Targets: vanilla [3, 2], double [2.5, 2]; predictions [7, 1].
+    assert result["td_loss"] == pytest.approx(expected_loss)
     torch.testing.assert_close(target.state_dict(), old_target)
     assert all(parameter.grad is None for parameter in target.parameters())
-    assert network[1].bias[0].item() > 0
+    torch.testing.assert_close(network[1].bias, torch.tensor([6.95, 1.05]))
 
 
 def test_dqn_update_learns_known_terminal_action_values():

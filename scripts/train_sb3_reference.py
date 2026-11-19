@@ -126,8 +126,9 @@ def restore_reference_snapshot(path, config, metadata, env, device):
         raise ValueError("snapshot does not belong to this run")
     if state["reference_version"] != __version__:
         raise ValueError("resume requires the same SB3 version")
+    saved_config = Config(**state["config"]).to_dict()
     for key, value in config.to_dict().items():
-        if key not in {"device", "torch_threads"} and value != state["config"][key]:
+        if key not in {"device", "torch_threads"} and value != saved_config[key]:
             raise ValueError(f"resume would change {key}; create a new experiment instead")
     if config.total_steps <= state["agent_steps"]:
         raise ValueError("the declared training budget is already complete")
@@ -313,6 +314,8 @@ class RecordControl(BaseCallback):
 def train_control(config, run, resume=None, persist_dir=None, env_factory=make_env):
     if __version__ != "2.9.2":
         raise ValueError("this reference runner requires stable-baselines3==2.9.2")
+    if config.double_dqn:
+        raise ValueError("the SB3 reference runner supports vanilla DQN only")
     if config.total_steps % config.train_every:
         raise ValueError("steps must be divisible by train_every for a matched stopping budget")
     for key in ("log_every", "checkpoint_every", "snapshot_every", "eval_every"):

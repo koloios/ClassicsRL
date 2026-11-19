@@ -77,14 +77,28 @@ def paused(reference, config, tmp_path, pixel_env_factory, monkeypatch):
     return captured[0], copied, snapshot, metadata
 
 
+@pytest.mark.parametrize("legacy", [False, True])
 def test_native_state_rng_and_next_update_survive_durable_recovery(
     reference,
     config,
     paused,
     pixel_env_factory,
     monkeypatch,
+    legacy,
 ):
     original, run, snapshot, metadata = paused
+    if legacy:
+        path = snapshot / "state.json"
+        state = json.loads(path.read_text())
+        del state["config"]["double_dqn"]
+        path.write_text(json.dumps(state))
+        manifest_path = snapshot / "manifest.json"
+        manifest = json.loads(manifest_path.read_text())
+        manifest["files"]["state.json"] = {
+            "bytes": path.stat().st_size,
+            "sha256": reference.digest(path),
+        }
+        manifest_path.write_text(json.dumps(manifest))
     expected = {
         "policy": copy.deepcopy(original.policy.state_dict()),
         "optimizer": copy.deepcopy(original.policy.optimizer.state_dict()),
@@ -203,6 +217,17 @@ def test_resume_rejects_changed_experiment(reference, config, paused, pixel_env_
             resume=snapshot,
             env_factory=pixel_env_factory,
         )
+
+
+def test_reference_rejects_double_dqn_before_creating_a_run(
+    reference, config, tmp_path, pixel_env_factory
+):
+    run = tmp_path / "run"
+    with pytest.raises(ValueError, match="vanilla DQN only"):
+        reference.train_control(
+            replace(config, double_dqn=True), run, env_factory=pixel_env_factory
+        )
+    assert not run.exists()
 
 
 def test_partial_copy_retries_and_corruption_is_rejected_before_loading(

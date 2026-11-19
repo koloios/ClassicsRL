@@ -129,6 +129,7 @@ def create_run(path: Path, config: Config, device):
         "created_at": datetime.now(UTC).isoformat(),
         "config": config.to_dict(),
         "environment": protocol(config),
+        "implementation": "classicsrl.DoubleDQN" if config.double_dqn else "classicsrl.DQN",
         **runtime_metadata(device),
         "loss": "smooth_l1",
         "network": "atari_cnn_v1",

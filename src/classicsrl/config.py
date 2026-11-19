@@ -20,6 +20,7 @@ class Config:
     target_update_every: int = 10_000
     learning_rate: float = 0.00003
     gamma: float = 0.99
+    double_dqn: bool = False
     max_grad_norm: float = 10.0
     epsilon_start: float = 1.0
     epsilon_end: float = 0.05

@@ -34,9 +34,10 @@ def train(config: Config, run_dir: Path, resume=None, persist_dir=None, env_fact
         resume = Path(resume)
         verify_snapshot(resume)
         saved = json.loads((resume / "state.json").read_text())
+        saved_config = Config(**saved["config"]).to_dict()
         allowed_changes = {"total_steps", "device", "torch_threads"}
         for key, value in config.to_dict().items():
-            if key not in allowed_changes and value != saved["config"][key]:
+            if key not in allowed_changes and value != saved_config[key]:
                 raise ValueError(f"resume would change {key}; create a new experiment instead")
         if config.total_steps <= saved["counters"]["step"]:
             raise ValueError("total_steps must exceed the saved step counter")
@@ -194,6 +195,7 @@ def train(config: Config, run_dir: Path, resume=None, persist_dir=None, env_fact
                         device,
                         config.gamma,
                         config.max_grad_norm,
+                        double_dqn=config.double_dqn,
                     )
                     counters["updates"] += 1
                 if counters["step"] % config.target_update_every == 0:

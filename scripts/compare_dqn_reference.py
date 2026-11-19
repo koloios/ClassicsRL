@@ -40,6 +40,8 @@ def compare(checkpoint, replay_path, steps=20, seed=20261107):
     torch.manual_seed(seed)
     saved = load_checkpoint(checkpoint, "cpu")
     config = Config(**saved["config"])
+    if config.double_dqn:
+        raise ValueError("the SB3 arithmetic audit supports vanilla DQN only")
     if config.batch_size < 3:
         raise ValueError("the boundary fixture requires a batch size of at least three")
     online = QNetwork(saved["num_actions"])

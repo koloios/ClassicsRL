@@ -65,7 +65,14 @@ def diagnose(checkpoint: Path, replay_path: Path, *, samples=128, seed=0, device
             q_values = network(torch.as_tensor(batch.observations, device=device)).cpu()
         optimizer = torch.optim.Adam(network.parameters(), lr=config.learning_rate)
         losses = update(
-            network, target, optimizer, batch, device, config.gamma, config.max_grad_norm
+            network,
+            target,
+            optimizer,
+            batch,
+            device,
+            config.gamma,
+            config.max_grad_norm,
+            double_dqn=config.double_dqn,
         )
         gradients = {key: value.grad.cpu().clone() for key, value in network.named_parameters()}
         weights = {key: value.detach().cpu().clone() for key, value in network.named_parameters()}

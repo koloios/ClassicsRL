@@ -21,13 +21,16 @@ def main():
             config = run["config"]
             segments = run["training_segments"]
             device = segments[0]["device"].upper()
-            recipe = (
-                "SB3 control"
-                if run.get("implementation") == "stable_baselines3.DQN"
-                else "ClassicsRL DQN (reference-inspired)"
-                if config["learning_starts"] == 80_000
-                else f"Target {config['target_update_every']:,} · lr {config['learning_rate']:g}"
-            )
+            if run.get("implementation") == "stable_baselines3.DQN":
+                recipe = "SB3 control"
+            elif config.get("double_dqn", False):
+                recipe = "ClassicsRL Double DQN"
+            elif config["learning_starts"] == 80_000:
+                recipe = "ClassicsRL DQN (reference-inspired)"
+            else:
+                recipe = (
+                    f"Target {config['target_update_every']:,} · lr {config['learning_rate']:g}"
+                )
             label = f"{recipe} · {device} · seed {config['seed']}"
             color = next(colors)
             for index, segment in enumerate(segments):

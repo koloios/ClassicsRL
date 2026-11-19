@@ -9,8 +9,8 @@ Apple Silicon and optional Colab GPU runs use the same Python package.
 
 ## Status
 
-**Experimental v0.1.** Currently supports pixel-based Pong with DQN. Additional
-games and algorithms are planned.
+**Experimental v0.1.** Currently supports pixel-based Pong with DQN and an opt-in
+Double DQN variant. Additional games are planned.
 
 A prospective comparison trained ClassicsRL DQN and Stable-Baselines3 DQN for
 2M agent steps each on the same CUDA runtime, using training seed 2. Both
@@ -65,6 +65,9 @@ uv run --extra atari classicsrl train --config configs/pong-reference-inspired.t
 `--device cpu`, `mps`, or `cuda` selects a backend. The default `auto` prefers CUDA,
 then MPS, then CPU. All schedules count agent transitions; frame repetition is
 applied once. Use a new directory for each experiment.
+
+Add `--double-dqn` to use online action selection with target-network evaluation.
+Vanilla DQN remains the default; Double DQN has no measured Pong results yet.
 
 To continue from a complete snapshot, use the paths printed by training:
 

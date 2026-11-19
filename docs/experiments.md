@@ -71,6 +71,32 @@ uv run --extra atari python scripts/compare_prefix.py runs/classicsrl runs/sb3 \
 
 These test seeds have now been inspected; reserve new seeds for future final tests.
 
+## Next experiment: DQN versus Double DQN
+
+**Planned; no training results yet.** Double DQN separates next-action selection
+(online network) from evaluation (target network), following
+[van Hasselt et al.](https://arxiv.org/abs/1509.06461). It is a small, testable
+change with no additional model. Current diagnostics do not establish
+overestimation as the cause of our performance variability.
+
+Start with one fresh pair using training seed 3, 2M steps per policy, and the
+reference-inspired recipe. Use the same pinned source, dependency versions, CUDA
+runtime, and cuDNN flags for both. Set `cudnn.deterministic=True` and
+`cudnn.benchmark=False` before either training process. Change only `double_dqn`;
+train vanilla first. Retain full recovery snapshots and record any interruption.
+Lock the source revision and resolved settings before starting.
+
+Validate on five full games, seeds 14,000,000–14,000,004, every 50k steps. Select
+the highest validation mean within 2M steps, latest on ties. Lock both policies
+before 50 final greedy games on seeds 15,000,000–15,000,049; include random actions
+on those seeds. Report mean return, full-game wins, truncations, and unsmoothed
+validation curves. Selection and evaluation use the existing completed-run
+comparison command with `--seed 15000000`.
+
+This is a pilot, not a multi-seed conclusion. Keep the default algorithm unchanged
+until further training seeds support an improvement. Do not reuse the inspected
+13M test set for selection or tune settings during the pair.
+
 ## Earlier two-million-step Pong runs
 
 Both ClassicsRL runs used `configs/pong-reference-inspired.toml`, completed
