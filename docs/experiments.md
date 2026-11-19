@@ -3,10 +3,75 @@
 These are development results, not a claim of algorithmic novelty. The committed
 reports retain raw returns, learning settings, source-file hashes, dependency
 versions, and recovery boundaries. Exact machine details, absolute storage paths,
-and original Git revision links are withheld. Unredacted originals remain private.
+and private development revision links are withheld. Unredacted originals remain private.
 Models, replay, and recordings stay outside the repository.
 
-## Two-million-step Pong runs
+## Completed matched pair: training seed 2
+
+ClassicsRL DQN and SB3 2.9.2 each completed 2,000,000 agent steps and 480,001
+updates in separate processes on the same Colab CUDA runtime. SB3 ran first.
+Both used `configs/pong-reference-inspired.toml`, with training seed 2, the 2M
+budget, and validation seeds 12,000,000–12,000,004. Validation ran every 50k steps.
+The selection rule was fixed before training: highest validation mean within the
+budget, latest checkpoint on ties. Both policies were locked before testing on
+seeds 13,000,000–13,000,049.
+
+| Policy | Selected step | Validation mean | Test mean | Wins / 50 | Truncations |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| ClassicsRL DQN | 1,900,000 | +8.4 | +6.44 | 41 | 0 |
+| SB3 DQN | 1,200,000 | -13.4 | -14.32 | 0 | 0 |
+| Random actions | — | — | -20.36 | 0 | 0 |
+
+[Raw evidence](experiments/dqn-matched-pair.json) includes all test returns, 40
+validation evaluations and 80 policy probes per implementation, source hashes,
+and the persisted trial plan. The exported report's SHA-256 was verified before
+adding it to this repository.
+
+![Matched seed-2 validation curves](figures/dqn-matched-pair.png)
+
+ClassicsRL won most test games in this pair. One training seed, native warm-up/RNG
+and reset differences, different target synchronization order, and shared wrappers
+and evaluation prevent a general superiority claim. The earlier common-budget
+trial below favored SB3. The target of mean return above +10 with at least 80%
+wins across three training seeds remains unmet.
+
+Neither run showed complete Conv3 collapse on the shared 128-observation replay
+probe at stored checkpoints. Minimum active fractions were 0.0669 for ClassicsRL
+and 0.1739 for SB3. Higher feature activity did not imply stronger play. A fresh
+20-update arithmetic audit on this software stack matched SB3 exactly for loss,
+Q-values, gradients, weights, and Adam state. This checks fixed-batch arithmetic;
+it does not explain the trajectory or playing-strength gap.
+
+Both runs completed without training recovery; browser reconnections did not
+restart the processes. Verified 1.9M-step snapshots from Drive were restored after
+testing, including replay, optimizer counters, and CUDA RNG state. Replay arrays
+occupied 709,428,224 bytes for ClassicsRL and 5,646,800,000 for SB3. The inspected
+buffers retained 99,971 and 100,000 transitions respectively: the compact frame
+arena also stores reset/history frames. These are array allocations, not peak
+process RAM. Wall times were about 124 and 135 minutes, including validation,
+persistence, startup, and up to 30 seconds of polling delay; this single trial is
+not a throughput benchmark.
+
+Training/evaluation source was `59e5b2f669cc885ec38d5572b02ad67a2e537b3a`.
+Before training, CUDA preflight led to a loader fix preserving native Adam scalar
+step placement on CPU; the original plan and amendment were retained privately.
+Both processes used `cudnn.deterministic=True` and `cudnn.benchmark=False`, with a
+ClassicsRL entry-point wrapper matching SB3's native CUDA setup. After testing,
+`bf9f436d1012becd94961d3cd357b6f6a565773b` fixed accelerator RNG restoration for
+unindexed device aliases and was used for the recovery checks and evidence
+collection. This recovery-only change did not alter the completed fresh runs.
+
+The completed-run comparison command locks both selections before either test:
+
+```sh
+uv run --extra atari python scripts/compare_prefix.py runs/classicsrl runs/sb3 \
+  --require-complete --budget 2000000 --episodes 50 --seed 13000000 \
+  --device cuda --output runs/matched-pair-comparison
+```
+
+These test seeds have now been inspected; reserve new seeds for future final tests.
+
+## Earlier two-million-step Pong runs
 
 Both ClassicsRL runs used `configs/pong-reference-inspired.toml`, completed
 2,000,000 agent steps and 480,001 updates, and selected the highest greedy
@@ -173,41 +238,3 @@ Exact training trajectories across versions and devices are not promised.
 
 Unredacted development records are kept privately. Shared reports omit machine
 identifiers; their numerical results are unchanged.
-
-## Prospective matched pair
-
-The next trial is fixed before training: ClassicsRL DQN and SB3 2.9.2 each receive
-2,000,000 agent steps with training seed 2 on the same Colab CUDA runtime. Both use
-`configs/pong-reference-inspired.toml`, overriding the total budget and validation
-seed only (plus the declared training seed/device). Training source is commit
-`59e5b2f669cc885ec38d5572b02ad67a2e537b3a`. The original source pin was amended
-before either long run: CUDA preflight found that SB3 loading moved Adam's scalar
-step counters to the GPU. The corrected loader preserves their native CPU
-placement, with a CUDA regression checking the identical next optimizer update.
-The persisted trial plan retains the pretraining amendment. SB3 runs first, then
-ClassicsRL, in separate processes on the same runtime.
-Both use `cudnn.deterministic=True` and `cudnn.benchmark=False`; the ClassicsRL
-entry-point wrapper sets these explicitly to match SB3's native CUDA setup.
-
-Validation uses five full games, seeds 12,000,000–12,000,004, every 50,000 steps.
-Both selections are locked before any final test: highest validation mean within
-the budget, latest checkpoint on ties. Final tests use seeds 13,000,000–13,000,049
-for both greedy policies and a random-action baseline. Report raw returns, mean,
-wins, and truncations, including weak results. No settings change in response to
-these tests. One training seed is a pipeline/comparison trial, not evidence of
-consistent learning or algorithmic superiority.
-
-Before the long runs, separate smoke artifacts check updates, complete snapshot
-cost, persistence, and recovery. Active training uses runtime-local storage;
-verified snapshots are copied to Drive. No intentional training interruptions are
-planned. Any recovery boundaries, lost work, dependency changes, or runtime changes
-must be recorded and disclosed with the results.
-
-Once both declared budgets finish, the comparison command verifies completion
-and locks both validation selections before testing either policy:
-
-```sh
-uv run --extra atari python scripts/compare_prefix.py runs/classicsrl runs/sb3 \
-  --require-complete --budget 2000000 --episodes 50 --seed 13000000 \
-  --device cuda --output runs/matched-pair-comparison
-```

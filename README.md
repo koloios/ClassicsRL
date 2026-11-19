@@ -12,20 +12,21 @@ Apple Silicon and optional Colab GPU runs use the same Python package.
 **Experimental v0.1.** Currently supports pixel-based Pong with DQN. Additional
 games and algorithms are planned.
 
-Two Pong training seeds completed two million agent steps each. Their
-validation-selected policies were tested on 50 held-out full games:
+A prospective comparison trained ClassicsRL DQN and Stable-Baselines3 DQN for
+2M agent steps each on the same CUDA runtime, using training seed 2. Both
+validation-selected policies were locked before 50 fresh full-game tests:
 
-| Training seed / device | Mean return | Wins |
+| Policy | Mean return | Wins |
 | --- | ---: | ---: |
-| Seed 0 / CUDA | +8.88 | 46/50 |
-| Seed 1 / MPS | +0.42 | 22/50 |
-| Random actions | -20.28 | 0/50 |
+| ClassicsRL DQN | +6.44 | 41/50 |
+| SB3 DQN | -14.32 | 0/50 |
+| Random actions | -20.36 | 0/50 |
 
-Learning is inconsistent across these runs. Seed, backend, and recovery history
-differ, so this does not isolate a hardware effect. In a separate comparison at
-the common available 1.3M-step budget, SB3 won 22/50 games and ClassicsRL won 6/50.
-The original 2M-step SB3 control was interrupted. See the
-[experiments](docs/experiments.md) for methods, raw results, and limitations.
+All test games ended naturally. This demonstrates a winning ClassicsRL policy
+for one seed, not consistent learning or general superiority over SB3. Earlier
+ClassicsRL runs scored +8.88 and +0.42 under different seeds/backends; the earlier
+1.3M-step comparison favored SB3. See the
+[experiments](docs/experiments.md) for raw results, methods, and limitations.
 
 ## Run locally
 
@@ -114,8 +115,8 @@ learning on a controlled task, replay boundaries, recovery, and dashboard behavi
 - [Experiments and reproduction](docs/experiments.md)
 - [Game content and dependencies](docs/game-content.md)
 
-The next milestones are consistent learning across training seeds, a complete
-resumable SB3 control, and an equal-budget Double DQN comparison.
+The next milestones are consistent learning across training seeds and a controlled
+Double DQN comparison.
 
 ## License
 
