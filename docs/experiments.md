@@ -6,6 +6,65 @@ versions, and recovery boundaries. Exact machine details, absolute storage paths
 and private development revision links are withheld. Unredacted originals remain private.
 Models, replay, and recordings stay outside the repository.
 
+## DQN and Double DQN: training seed 3
+
+Both agents completed 2,000,000 agent steps and 480,001 updates using
+`configs/pong-reference-inspired.toml`, training seed 3, and validation seeds
+14,000,000–14,000,004. The resolved learning settings differed only in
+`double_dqn`. Double DQN separates online next-action selection from target-network
+evaluation, following [van Hasselt et al.](https://arxiv.org/abs/1509.06461).
+
+The source and protocol were fixed before training. DQN ran first and completed
+without recovery. The Colab runtime was lost during Double DQN; its exact final
+counter was not persisted. Double DQN resumed on a new CUDA runtime from a verified
+1.1M-step snapshot, restoring replay, online/target weights, Adam, counters, and
+RNG state, then starting a fresh emulator episode. Persisted validation rows
+through 1.1M were retained; later rows came from the resumed segment. Source,
+Python, and dependency versions matched across segments, with no learning-setting
+changes. This recovery boundary is a comparison limitation.
+
+Validation used five full games every 50k steps. The selection rule was fixed
+before training: highest matching validation mean within 2M, latest checkpoint on
+ties. Both selections were locked before 50 greedy final games on seeds
+15,000,000–15,000,049. Random actions used the same test seeds.
+
+| Policy | Selected step | Validation mean | Test mean | Wins / 50 | Truncations |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DQN | 1,850,000 | +12.0 | +12.42 | 49 | 0 |
+| Double DQN | 2,000,000 | +14.6 | +11.76 | 50 | 0 |
+| Random actions | — | — | -20.30 | 0 | 0 |
+
+All 150 final games ended naturally. [Raw evidence](experiments/dqn-double-dqn-seed-3.json)
+retains the test returns, all 40 validation evaluations per agent, selections,
+resolved settings, source hashes, and recovery details. Its exported SHA-256 was
+verified before publication.
+
+![Seed-3 DQN and Double DQN validation curves](figures/dqn-double-dqn-seed-3.png)
+
+Both agents met the per-seed target of mean return above +10 and at least 80%
+wins. Confirmation across three training seeds remains outstanding. Double DQN
+won one additional game but had a lower mean return; this single seed and the
+unequal recovery histories do not establish an algorithm advantage. Vanilla DQN
+remains the default. The current evidence does not establish overestimation as
+the cause of earlier performance variability.
+
+Training/evaluation source was `853395759224177bd55658694bd5fa898f85ae30`.
+Both training entry points set `cudnn.deterministic=True` and
+`cudnn.benchmark=False`. Recovery preflight passed 19 tests, including CUDA RNG
+restoration. DQN wall time was about 116 minutes; the Double DQN recovery segment
+took about 59 minutes. Its original process wall time was lost, so no total Double
+DQN wall time or throughput comparison is reported.
+
+The completed-run comparison used:
+
+```sh
+uv run --extra atari python scripts/compare_prefix.py runs/dqn runs/double-dqn \
+  --require-complete --budget 2000000 --episodes 50 --seed 15000000 \
+  --device cuda --output runs/seed-3-comparison
+```
+
+These test seeds have now been inspected; reserve fresh seeds for future final tests.
+
 ## Completed matched pair: training seed 2
 
 ClassicsRL DQN and SB3 2.9.2 each completed 2,000,000 agent steps and 480,001
@@ -70,32 +129,6 @@ uv run --extra atari python scripts/compare_prefix.py runs/classicsrl runs/sb3 \
 ```
 
 These test seeds have now been inspected; reserve new seeds for future final tests.
-
-## Next experiment: DQN versus Double DQN
-
-**Planned; no training results yet.** Double DQN separates next-action selection
-(online network) from evaluation (target network), following
-[van Hasselt et al.](https://arxiv.org/abs/1509.06461). It is a small, testable
-change with no additional model. Current diagnostics do not establish
-overestimation as the cause of our performance variability.
-
-Start with one fresh pair using training seed 3, 2M steps per policy, and the
-reference-inspired recipe. Use the same pinned source, dependency versions, CUDA
-runtime, and cuDNN flags for both. Set `cudnn.deterministic=True` and
-`cudnn.benchmark=False` before either training process. Change only `double_dqn`;
-train vanilla first. Retain full recovery snapshots and record any interruption.
-Lock the source revision and resolved settings before starting.
-
-Validate on five full games, seeds 14,000,000–14,000,004, every 50k steps. Select
-the highest validation mean within 2M steps, latest on ties. Lock both policies
-before 50 final greedy games on seeds 15,000,000–15,000,049; include random actions
-on those seeds. Report mean return, full-game wins, truncations, and unsmoothed
-validation curves. Selection and evaluation use the existing completed-run
-comparison command with `--seed 15000000`.
-
-This is a pilot, not a multi-seed conclusion. Keep the default algorithm unchanged
-until further training seeds support an improvement. Do not reuse the inspected
-13M test set for selection or tune settings during the pair.
 
 ## Earlier two-million-step Pong runs
 

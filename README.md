@@ -12,21 +12,21 @@ Apple Silicon and optional Colab GPU runs use the same Python package.
 **Experimental v0.1.** Currently supports pixel-based Pong with DQN and an opt-in
 Double DQN variant. Additional games are planned.
 
-A prospective comparison trained ClassicsRL DQN and Stable-Baselines3 DQN for
-2M agent steps each on the same CUDA runtime, using training seed 2. Both
-validation-selected policies were locked before 50 fresh full-game tests:
+A seed-3 trial trained DQN and Double DQN for 2M agent steps each. Both
+validation-selected policies were locked before 50 fresh full-game tests.
+Double DQN recovered from a 1.1M-step snapshot after a Colab runtime loss:
 
 | Policy | Mean return | Wins |
 | --- | ---: | ---: |
-| ClassicsRL DQN | +6.44 | 41/50 |
-| SB3 DQN | -14.32 | 0/50 |
-| Random actions | -20.36 | 0/50 |
+| DQN | +12.42 | 49/50 |
+| Double DQN | +11.76 | 50/50 |
+| Random actions | -20.30 | 0/50 |
 
-All test games ended naturally. This demonstrates a winning ClassicsRL policy
-for one seed, not consistent learning or general superiority over SB3. Earlier
-ClassicsRL runs scored +8.88 and +0.42 under different seeds/backends; the earlier
-1.3M-step comparison favored SB3. See the
-[experiments](docs/experiments.md) for raw results, methods, and limitations.
+All test games ended naturally. Both policies won most games for this seed;
+additional training seeds are needed to assess repeatability. The differing
+recovery histories limit algorithm comparisons. Vanilla DQN remains the default.
+See the [experiments](docs/experiments.md) for learning curves, raw results,
+methods, and earlier trials.
 
 ## Run locally
 
@@ -67,7 +67,7 @@ then MPS, then CPU. All schedules count agent transitions; frame repetition is
 applied once. Use a new directory for each experiment.
 
 Add `--double-dqn` to use online action selection with target-network evaluation.
-Vanilla DQN remains the default; Double DQN has no measured Pong results yet.
+Vanilla DQN remains the default.
 
 To continue from a complete snapshot, use the paths printed by training:
 
@@ -118,8 +118,8 @@ learning on a controlled task, replay boundaries, recovery, and dashboard behavi
 - [Experiments and reproduction](docs/experiments.md)
 - [Game content and dependencies](docs/game-content.md)
 
-The next milestones are consistent learning across training seeds and a controlled
-Double DQN comparison.
+The next milestones are consistent learning across training seeds, then support
+for another game.
 
 ## License
 
