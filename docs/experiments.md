@@ -240,9 +240,15 @@ uv run --extra atari python scripts/evaluate_run.py runs/pong-seed-0 \
 ```
 
 `evaluate_run.py` requires the declared budget to finish and locks the selection
-before testing. `compare_prefix.py` locks selections within a stated common
-budget without marking interrupted source runs complete. Existing selections
-must not be overwritten after scores are inspected.
+before testing. It saves each finished game atomically. After an interruption,
+rerun the same command with the same label, seeds, and evaluation runtime. The
+evaluator checks the locked checkpoint hash and continues with the next unfinished
+game. On Colab, point the command at the completed run copied to Drive so the
+selection and game results survive a runtime loss.
+
+`compare_prefix.py` locks selections within a stated common budget without marking
+interrupted source runs complete. Existing selections must not be overwritten
+after scores are inspected.
 
 The optional reference command is:
 

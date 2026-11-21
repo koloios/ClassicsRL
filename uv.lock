@@ -79,6 +79,7 @@ name = "classicsrl"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "filelock" },
     { name = "gymnasium" },
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
@@ -109,6 +110,7 @@ dev = [
 requires-dist = [
     { name = "ale-py", marker = "extra == 'atari'", specifier = ">=0.10,<0.13" },
     { name = "fastapi", marker = "extra == 'dashboard'", specifier = ">=0.115,<1" },
+    { name = "filelock", specifier = ">=3.16,<5" },
     { name = "gymnasium", specifier = ">=1.1,<2" },
     { name = "imageio", extras = ["ffmpeg"], marker = "extra == 'video'", specifier = ">=2.36,<3" },
     { name = "numpy", specifier = ">=1.26,<3" },

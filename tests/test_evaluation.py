@@ -12,6 +12,97 @@ from classicsrl.dqn import QNetwork
 from classicsrl.evaluation import evaluate, select_validation
 
 
+@pytest.fixture
+def heldout_run(tmp_path):
+    script = Path(__file__).parents[1] / "scripts" / "evaluate_run.py"
+    spec = importlib.util.spec_from_file_location("heldout_cli", script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    run = tmp_path / "run"
+    config = replace(Config(), device="cpu", torch_threads=1, total_steps=100)
+    metadata = create_run(run, config, "cpu")
+    for step in (50, 100):
+        checkpoint = save_checkpoint(run, QNetwork(2), config, {"step": step}, metadata["run_id"])
+        append_json(
+            run / "evaluations.jsonl",
+            {
+                "agent_steps": step,
+                "mean_return": float(step),
+                "policy": "greedy",
+                "environment": metadata["environment"],
+                "checkpoint": str(checkpoint.relative_to(run)),
+            },
+        )
+    append_json(run / "segments.jsonl", {"event": "start", "config": config.to_dict()})
+    append_json(run / "segments.jsonl", {"event": "stop", "agent_steps": 100})
+    return module, run
+
+
+@pytest.mark.parametrize("interrupt_on", [2, 5])
+def test_heldout_resume_matches_uninterrupted_games(
+    heldout_run, monkeypatch, pixel_env_factory, interrupt_on
+):
+    module, run = heldout_run
+    calls = []
+    interruption = interrupt_on
+    label = "resumed"
+
+    class InterruptibleEnv(pixel_env_factory):
+        def reset(self, *, seed=None, options=None):
+            lock = run / f"test-selection-{label}.json"
+            assert json.loads(lock.read_text())["test_seeds"] == [90, 91, 92]
+            calls.append(seed)
+            self.resets = seed
+            return super().reset(seed=seed, options=options)
+
+        def step(self, action):
+            if len(calls) == interruption and self.steps == 1:
+                raise KeyboardInterrupt
+            return super().step(action)
+
+    monkeypatch.setattr(
+        module, "evaluate", lambda *a, **kw: evaluate(*a, **kw, env_factory=InterruptibleEnv)
+    )
+    command = [str(run), "--device", "cpu", "--episodes", "3", "--seed", "90", "--label"]
+    with pytest.raises(KeyboardInterrupt):
+        module.main([*command, label])
+    lock_path = run / "test-selection-resumed.json"
+    lock = lock_path.read_bytes()
+    selected = json.loads(lock)
+    policy = "greedy" if interrupt_on == 2 else "random"
+    progress_path = run / "episodes" / f"heldout-resumed-{policy}" / "progress.json"
+    assert [row["seed"] for row in json.loads(progress_path.read_text())["episodes"]] == [90]
+
+    with pytest.raises(ValueError, match="test seeds differ"):
+        module.main([*command, label, "--seed", "91"])
+    checkpoint = run / selected["checkpoint"]
+    weights = checkpoint.read_bytes()
+    checkpoint.write_bytes(weights + b"changed")
+    with pytest.raises(ValueError, match="checksum differs"):
+        module.main([*command, label])
+    checkpoint.write_bytes(weights)
+    assert lock_path.read_bytes() == lock
+
+    interruption = None
+    calls.clear()
+    module.main([*command, label])
+    assert calls == ([91, 92, 90, 91, 92] if interrupt_on == 2 else [91, 92])
+    assert not progress_path.exists()
+    assert lock_path.read_bytes() == lock
+    calls.clear()
+    module.main([*command, label])
+    assert not calls
+
+    label = "uninterrupted"
+    module.main([*command, label])
+    for policy in ("greedy", "random"):
+        resumed = run / "episodes" / f"heldout-resumed-{policy}" / "evaluation.json"
+        fresh = run / "episodes" / f"heldout-uninterrupted-{policy}" / "evaluation.json"
+        left, right = json.loads(resumed.read_text()), json.loads(fresh.read_text())
+        assert left.pop("evaluation_id") != right.pop("evaluation_id")
+        assert left == right
+
+
 def test_validation_selection_respects_protocol_budget_and_latest_tie():
     def row(step, score, environment="full", policy="greedy"):
         return dict(agent_steps=step, mean_return=score, environment=environment, policy=policy)
