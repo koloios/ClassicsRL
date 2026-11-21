@@ -28,14 +28,29 @@ def select_validation(rows, environment, completed_steps):
 
 
 def evaluate(
-    network, config, device, seeds, policy="greedy", record_dir=None, env_factory=make_env
+    network,
+    config,
+    device,
+    seeds,
+    policy="greedy",
+    record_dir=None,
+    env_factory=make_env,
+    *,
+    completed=(),
+    on_episode=None,
 ):
+    """Evaluate seeded games, optionally continuing a saved prefix without video."""
     if policy not in {"greedy", "random"}:
         raise ValueError("policy must be greedy or random")
     seeds = list(seeds)
     if not seeds:
         raise ValueError("evaluation requires at least one episode seed")
+    results = list(completed)
+    if [item["seed"] for item in results] != seeds[: len(results)]:
+        raise ValueError("saved episodes must match the start of the evaluation seed list")
     if record_dir is not None:
+        if results:
+            raise ValueError("resume is only supported for evaluations without recording")
         try:
             import imageio.v2 as imageio
         except ImportError as error:
@@ -59,11 +74,10 @@ def evaluate(
         if hasattr(env.unwrapped, "get_action_meanings")
         else [str(index) for index in range(env.action_space.n)]
     )
-    results = []
     was_training = network.training
     network.eval()
     try:
-        for number, seed in enumerate(seeds):
+        for number, seed in enumerate(seeds[len(results) :], start=len(results)):
             rng = np.random.default_rng(seed)
             observation, _ = env.reset(seed=seed)
             score, steps = 0.0, 0
@@ -120,6 +134,8 @@ def evaluate(
                     "video": video_path.name if video_path else None,
                 }
             )
+            if on_episode is not None:
+                on_episode(results[-1])
     finally:
         env.close()
         network.train(was_training)
